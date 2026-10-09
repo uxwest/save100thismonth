@@ -1,1 +1,85 @@
-<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Savings Interest Calculator | Save100ThisMonth</title><link rel="stylesheet" href="../../assets/css/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="logo" href="../../index.html">Save<b>100</b>ThisMonth</a><nav class="main-nav"><a href="../index.html">Tools</a></nav></div></header><main><article class="page"><h1>Savings Interest Calculator</h1><label>Balance<input id="p" type="number" min="0"></label><label>APY %<input id="y" type="number" min="0" max="25" step="0.01"></label><label>Months<input id="n" type="number" value="12" min="1" max="600"></label><p><button class="btn primary" id="c" style="background:#1877F2;color:#fff;border:0;padding:.7rem 1.2rem;border-radius:999px;font-weight:800">Calculate</button></p><div class="result" id="r">Enter figures.</div></article><script>document.getElementById('c').onclick=()=>{const p=parseFloat(document.getElementById('p').value),y=parseFloat(document.getElementById('y').value),n=parseInt(document.getElementById('n').value),r=document.getElementById('r');if(isNaN(p)||isNaN(y)||isNaN(n)){r.textContent='Enter valid values.';return;}const m=Math.pow(1+y/100,1/12)-1;let b=p;for(let i=0;i<n;i++)b*=1+m;r.innerHTML=`Balance ≈ <b>$${b.toFixed(2)}</b>, interest ≈ <b>$${(b-p).toFixed(2)}</b>.`};</script></main></body></html>
+<!DOCTYPE html><html lang="en-US"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Savings Interest Calculator (with monthly deposits) | Save100ThisMonth</title>
+<meta name="description" content="See what your savings earn at any APY, with optional monthly contributions and a year-by-year growth table. Private, in-browser, formula shown.">
+<link rel="canonical" href="https://save100thismonth.com/tools/savings-interest-calculator/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Save100ThisMonth">
+<meta property="og:title" content="What does your savings actually earn? Run the numbers in 20 seconds.">
+<meta property="og:description" content="APY, monthly deposits and a year-by-year growth table. Free, private, formula shown.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head><body>
+<div class="topstrip"><div class="wrap"><span>Free tool · Nothing is uploaded</span><span><a href="../../index.html">← Home</a></span></div></div>
+<header class="site-header"><div class="wrap nav-wrap">
+  <a class="brand" href="../../index.html">Save<span>100</span>ThisMonth</a>
+  <nav class="nav" aria-label="Primary"><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html" aria-current="page">Tools</a></nav>
+  <a class="nav-cta" href="../../search/index.html">Search</a>
+</div></header>
+<main><div class="wrap">
+  <p class="crumbs"><a href="../../index.html">Home</a> › <a href="../index.html">Tools</a> › Savings interest</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.3rem)">Savings Interest Calculator</h1>
+  <p class="lede" style="max-width:70ch">Enter your balance, a rate you have verified with your bank, and how long you plan to leave it. Add an optional monthly deposit to see how small habits compound. Everything runs in your browser — nothing is sent or stored.</p>
+
+  <div class="tool" style="margin-top:1.2rem">
+    <div class="row2">
+      <div><label for="p">Starting balance ($)</label><input id="p" type="number" min="0" step="100" value="5000"></div>
+      <div><label for="y">APY (%) — verify with your bank</label><input id="y" type="number" min="0" max="25" step="0.01" value="4.25"></div>
+    </div>
+    <div class="row2">
+      <div><label for="m">Monthly deposit ($)</label><input id="m" type="number" min="0" step="10" value="100"></div>
+      <div><label for="n">Years</label><input id="n" type="number" min="1" max="40" step="1" value="5"></div>
+    </div>
+    <div class="row2">
+      <div><label for="c">Compounding</label><select id="c"><option value="12">Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option></select></div>
+      <div><label for="low">Compare against a low rate (%)</label><input id="low" type="number" min="0" max="25" step="0.01" value="0.10"></div>
+    </div>
+    <p style="margin-top:1rem"><button class="btn" id="go" type="button">Calculate</button></p>
+    <div class="result" id="out" role="status" aria-live="polite">Press Calculate to see your projection.</div>
+    <div class="tablewrap" id="tw" hidden><table id="t"><thead><tr><th>Year</th><th>Deposits that year</th><th>Interest that year</th><th>End balance</th></tr></thead><tbody></tbody></table></div>
+    <p class="hint">Formula: monthly rate r = (1 + APY)^(1/12) − 1 for monthly compounding; balance grows by r each period and deposits are added at period end. Interest is not taxed here.</p>
+  </div>
+
+  <div class="callout warn" style="max-width:760px"><b>Assumptions &amp; limits.</b> APY is variable and can change at any time; taxes on interest are not included; the “low rate” comparison assumes the same deposits. Results are estimates, not guarantees, and not financial advice.</div>
+
+  <p class="meta" style="margin-top:1.2rem">Related: <a href="../../money/best-online-banks/index.html">Best Online Banks</a> · <a href="../../money/best-high-yield-savings-accounts/index.html">High-Yield Savings checklist</a></p>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+  <div class="ft-grid">
+    <div><div class="ft-brand">Save<span>100</span>ThisMonth</div><p class="ft-note">Plain-English comparison guides and free calculators for US households. Frameworks and sources — never invented rankings.</p></div>
+    <div><h4>Sections</h4><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html">Tools</a></div>
+    <div><h4>Trust</h4><a href="../../about/index.html">About</a><a href="../../editorial-policy/index.html">Editorial Policy</a><a href="../../fact-checking/index.html">Fact-Checking</a><a href="../../corrections/index.html">Corrections</a><a href="../../advertising-disclosure/index.html">Advertising Disclosure</a></div>
+    <div><h4>Legal</h4><a href="../../privacy/index.html">Privacy</a><a href="../../cookies/index.html">Cookies</a><a href="../../terms/index.html">Terms</a><a href="../../sitemap/index.html">Sitemap</a><a href="../../contact/index.html">Contact</a></div>
+  </div>
+  <div class="ft-legal"><span>© 2025 Save100ThisMonth.com — Estimates only, not financial advice.</span><span>Verify rates with your bank before deciding.</span></div>
+</div></footer>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);};
+  $('go').addEventListener('click',function(){
+    var p=parseFloat($('p').value), apy=parseFloat($('y').value), m=parseFloat($('m').value)||0,
+        n=parseInt($('n').value,10), per=parseInt($('c').value,10), low=parseFloat($('low').value)||0;
+    var out=$('out'), tw=$('tw'), tb=$('t').querySelector('tbody');
+    if(isNaN(p)||isNaN(apy)||isNaN(n)||p<0||apy<0||n<1){out.textContent='Please enter valid values: balance ≥ 0, APY ≥ 0, years ≥ 1.';tw.hidden=true;return;}
+    function project(rate){
+      var r=Math.pow(1+rate/100,1/12)-1; // monthly rate
+      var bal=p, totalDep=0, totalInt=0, rows='';
+      for(var yr=1;yr<=n;yr++){
+        var yearDep=0, yearInt=0;
+        for(var mo=0;mo<12;mo++){
+          var interest=bal*r; bal+=interest; yearInt+=interest;
+          bal+=m; yearDep+=m;
+        }
+        totalDep+=yearDep; totalInt+=yearInt;
+        rows+='<tr><td>'+yr+'</td><td>$'+yearDep.toFixed(0)+'</td><td>$'+yearInt.toFixed(0)+'</td><td>$'+bal.toFixed(0)+'</td></tr>';
+      }
+      return {bal:bal, dep:totalDep, int:totalInt, rows:rows};
+    }
+    var a=project(apy), b=project(low);
+    out.innerHTML='<b>After '+n+' year'+(n>1?'s':'')+':</b> ending balance ≈ <b>$'+a.bal.toFixed(0)+'</b>.<br>'+
+      'You deposited about <b>$'+a.dep.toFixed(0)+'</b> and earned about <b>$'+a.int.toFixed(0)+'</b> in interest.<br>'+
+      '<span class="hint">Against a low '+low.toFixed(2)+'% rate, the difference is about <b>$'+(a.bal-b.bal).toFixed(0)+'</b> over the same period.</span>';
+    tb.innerHTML=a.rows; tw.hidden=false;
+  });
+})();
+</script>
+</body></html>
