@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Subscription Savings Calculator — Annual vs. Monthly | Save100ThisMonth</title>
+<meta name="description" content="Calculate the real difference between annual and monthly subscription billing, including the risk of paying upfront. Formula and assumptions shown.">
+<link rel="canonical" href="https://save100thismonth.com/tools/subscription-calculator/">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/">Save<span>100</span>ThisMonth</a>
+    <nav class="main-nav"><a href="/money/">Money</a><a href="/shopping/">Shopping</a><a href="/bills/">Bills</a><a href="/subscriptions/">Subscriptions</a><a href="/tools/" class="active">Tools</a></nav>
+  </div>
+</header>
+<main>
+<article class="page">
+<div class="breadcrumbs"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Subscription Calculator</div>
+<h1>Subscription Savings Calculator</h1>
+<p class="meta-line">Tools · No data leaves your browser · Formula and limitations below</p>
+<div class="tool">
+  <label for="monthly">Monthly price (USD)</label>
+  <input id="monthly" type="number" min="0" step="0.01" placeholder="e.g. 14.99">
+  <label for="annual">Annual price (USD)</label>
+  <input id="annual" type="number" min="0" step="0.01" placeholder="e.g. 149.99">
+  <button class="btn" id="calc" type="button">Calculate</button>
+  <div class="result" id="result" role="status" aria-live="polite">Enter both prices and calculate.</div>
+  <p class="formula"><strong>Formula:</strong> savings = (monthly × 12) − annual. The annual plan is cheaper only if you keep the subscription the full 12 months.</p>
+  <p class="formula"><strong>Limitations:</strong> ignores price increases mid-term, refunds and your chance of cancelling early. If you might cancel within the year, the monthly plan may be smarter even at a higher listed price. All figures are examples you provide — we don’t store or send anything.</p>
+</div>
+<p><a href="/subscriptions/">More subscription guides →</a></p>
+</article>
+<script>
+const $=id=>document.getElementById(id);
+$('calc').addEventListener('click',()=>{
+  const m=parseFloat($('monthly').value), a=parseFloat($('annual').value);
+  if(isNaN(m)||isNaN(a)||m<0||a<0){$('result').textContent='Please enter valid, non-negative prices.';return;}
+  const yearly=m*12, save=yearly-a;
+  $('result').innerHTML = save>0
+    ? `Annual plan saves you <strong>$${save.toFixed(2)}</strong> per year (monthly × 12 = $${yearly.toFixed(2)}). Only worth it if you keep it all year.`
+    : save===0
+      ? 'Both plans cost the same over 12 months — prefer monthly for flexibility.'
+      : `The monthly plan is effectively cheaper if you might cancel early: annual costs <strong>$${(-save).toFixed(2)} MORE</strong> per year than monthly billing.`;
+});
+</script>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div><h4>Tools</h4><ul><li><a href="/tools/">All calculators</a></li></ul></div></div>
+<div class="footer-bottom">© 2025 Save100ThisMonth.com</div>
+</footer>
+</body>
+</html>

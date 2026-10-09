@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Invoice Generator (In-Browser, No Upload) | Save100ThisMonth</title>
+<meta name="description" content="Create a professional invoice for free, entirely in your browser. Nothing is uploaded or stored. Print or save as PDF from your browser.">
+<link rel="canonical" href="https://save100thismonth.com/tools/invoice-generator/">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/">Save<span>100</span>ThisMonth</a>
+    <nav class="main-nav"><a href="/money/">Money</a><a href="/shopping/">Shopping</a><a href="/bills/">Bills</a><a href="/subscriptions/">Subscriptions</a><a href="/tools/" class="active">Tools</a></nav>
+  </div>
+</header>
+<main>
+<article class="page">
+<div class="breadcrumbs"><a href="/">Home</a> › <a href="/tools/">Tools</a> › Invoice Generator</div>
+<h1>Free Invoice Generator</h1>
+<p class="meta-line">Tools · Runs 100% in your browser — your data never leaves this page · Fill the fields, then print or save as PDF (Ctrl/Cmd+P)</p>
+<div class="tool">
+  <label for="from">Your name / business</label>
+  <input id="from" type="text" placeholder="Jane Doe Design">
+  <label for="to">Client name</label>
+  <input id="to" type="text" placeholder="Acme LLC">
+  <label for="invnum">Invoice #</label>
+  <input id="invnum" type="text" placeholder="001">
+  <label for="desc">Description</label>
+  <input id="desc" type="text" placeholder="Logo design — 2 revisions">
+  <label for="amount">Amount (USD)</label>
+  <input id="amount" type="number" min="0" step="0.01" placeholder="450.00">
+  <button class="btn" id="gen" type="button">Build invoice preview</button>
+  <div class="result" id="preview" role="status" aria-live="polite">Fill the fields and build a preview.</div>
+  <p class="formula"><strong>Privacy:</strong> this tool does not upload, store or transmit anything. Refresh the page to erase all data.</p>
+  <p class="formula"><strong>Note:</strong> this is a document template, not tax or accounting software. Check your state/country invoicing requirements.</p>
+</div>
+</article>
+<script>
+const $=id=>document.getElementById(id);
+$('gen').addEventListener('click',()=>{
+  const from=$('from').value.trim(), to=$('to').value.trim(), n=$('invnum').value.trim(), d=$('desc').value.trim(), a=parseFloat($('amount').value);
+  if(!from||!to||!d||isNaN(a)||a<0){$('preview').textContent='Please fill your name, client, description and a valid amount.';return;}
+  $('preview').innerHTML=`<div style="background:#fff;border:1px solid #ddd;padding:1.2rem;border-radius:8px;text-align:left">
+  <h3 style="margin:0 0 .3rem">INVOICE ${n||'(draft)'}</h3>
+  <p style="margin:0;color:#65676B">From: ${from} · To: ${to}</p>
+  <p style="margin:.6rem 0 0"><strong>${d}</strong></p>
+  <p style="margin:.2rem 0 0;font-size:1.3rem"><strong>Total due: $${a.toFixed(2)}</strong></p></div>
+  <p style="margin-top:.8rem"><strong>Tip:</strong> print this page (Ctrl/Cmd+P) and choose “Save as PDF” to export a clean invoice.</p>`;
+});
+</script>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div><h4>Tools</h4><ul><li><a href="/tools/">All calculators</a></li></ul></div></div>
+<div class="footer-bottom">© 2025 Save100ThisMonth.com</div>
+</footer>
+</body>
+</html>
