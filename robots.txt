@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+
+Sitemap: https://save100thismonth.com/sitemap.xml

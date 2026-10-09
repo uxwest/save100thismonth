@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search | Save100ThisMonth</title>
+<meta name="description" content="Search Save100ThisMonth guides and comparisons.">
+<link rel="canonical" href="https://save100thismonth.com/search/">
+<meta name="robots" content="noindex,follow">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/">Save<span>100</span>ThisMonth</a>
+    <nav class="main-nav"><a href="/money/">Money</a><a href="/shopping/">Shopping</a><a href="/bills/">Bills</a><a href="/subscriptions/">Subscriptions</a><a href="/tools/">Tools</a></nav>
+  </div>
+</header>
+<main>
+<article class="page">
+<h1>Search</h1>
+<p>This is a lightweight client-side search over the guides currently published on the site.</p>
+<input id="q" type="search" placeholder="Type: savings, insurance, wix, cashback…" style="width:100%;max-width:420px;padding:.6rem;border:1px solid #ddd;border-radius:8px;font-size:1rem" aria-label="Search guides">
+<div id="results" style="margin-top:1rem" role="status" aria-live="polite"></div>
+</article>
+</main>
+<script>
+const pages=[
+ {t:'Best High-Yield Savings Accounts',u:'/money/best-high-yield-savings-accounts/',k:'savings apy hysa money fdic interest bank'},
+ {t:'Best Online Banks',u:'/money/best-online-banks/',k:'online bank fees atm fdic money checking'},
+ {t:'Best Day Trading Platform',u:'/money/best-day-trading-platform/',k:'trading platform broker stocks margin day trading'},
+ {t:'Best Credit Card for Travel',u:'/shopping/best-credit-card-for-travel/',k:'credit card travel points airline lounge'},
+ {t:'Best Antivirus for Mac',u:'/shopping/best-antivirus-for-mac/',k:'antivirus mac security xprotect gatekeeper'},
+ {t:'Best Meal Delivery',u:'/shopping/best-meal-delivery/',k:'meal delivery kit prepared food cooking'},
+ {t:'Best Car Insurance Companies',u:'/bills/best-car-insurance-companies/',k:'car insurance auto quote claims premium'},
+ {t:'Best Prepaid Phone Plans',u:'/bills/best-prepaid-phone-plans/',k:'prepaid phone plan mobile data carrier'},
+ {t:'Finding the Best Dentist Near You',u:'/bills/best-dentist-near-me/',k:'dentist near me dental insurance local'},
+ {t:'Wix vs Squarespace for a Portfolio',u:'/subscriptions/wix-vs-squarespace-for-a-portfolio/',k:'wix squarespace portfolio website builder'},
+ {t:'Best Free Website Builder for a Business',u:'/subscriptions/best-free-website-builder-for-a-business/',k:'free website builder business domain'},
+ {t:'Subscription Savings Calculator',u:'/tools/subscription-calculator/',k:'subscription calculator annual monthly savings'},
+ {t:'Savings Interest Calculator',u:'/tools/savings-interest-calculator/',k:'savings interest calculator apy compound'},
+ {t:'Cashback Comparison Calculator',u:'/tools/cashback-calculator/',k:'cashback calculator card comparison'},
+ {t:'Free Invoice Generator',u:'/tools/invoice-generator/',k:'invoice generator free freelancer billing'}
+];
+const q=document.getElementById('q'), r=document.getElementById('results');
+function render(){
+  const v=(q.value||'').toLowerCase().trim();
+  if(!v){r.innerHTML='';return;}
+  const hits=pages.filter(p=>(p.t+' '+p.k).includes(v));
+  r.innerHTML=hits.length?hits.map(p=>'<p><a href="'+p.u+'">'+p.t+'</a></p>').join(''):'<p>No results. Try a shorter word.</p>';
+}
+q.addEventListener('input',render);
+if(new URLSearchParams(location.search).get('q')){q.value=new URLSearchParams(location.search).get('q');render();}
+</script>
+</body>
+</html>
