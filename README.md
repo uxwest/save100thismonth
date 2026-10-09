@@ -1,33 +1,47 @@
 # Save100ThisMonth.com
 
-**Spend smarter. Get more.** An editorial site about smart spending, better value, and practical money decisions for US readers.
+**Spend smarter. Get more.** An independent US personal-finance and consumer-decisions publication. Static site: semantic HTML, one stylesheet, vanilla JavaScript. No build step, no database.
 
-Static site: semantic HTML + CSS + vanilla JavaScript. No build step required — open the files or serve the folder with any static host (GitHub Pages, Netlify, Cloudflare Pages).
+## Editorial position
+
+We publish **comparison frameworks**, not frozen rankings. Rates, fees and terms change constantly, so every guide teaches you how to compare and points you to primary sources, with illustrative figures clearly labelled. We never publish invented prices, rankings, authors or results. "$100 this month" is an aspirational goal, never a promise.
+
+## Design system (v6)
+
+- One stylesheet: `assets/css/style.css`
+- Serif headlines (Georgia) for an editorial feel, system sans for body text
+- Dark navy hero and footer, white content cards, soft grey page background
+- Components: hero, stat cards, data tables with highlighted rows, formula blocks, callouts, pull-quotes, figures with captions, FAQ accordions, calculator result panels
+- Ad slots are marked PENDING and contain no ad code
+
+## Template rule (important)
+
+The header and footer are **written statically into every page** with identical markup, identical class names and identical menu order. There is no JavaScript-injected navigation, because that is what previously caused the menu to differ between pages.
+
+Menu order, everywhere: Money · Shopping · Bills · Subscriptions · Tools, plus a Search button.
 
 ## Structure
 
 ```
-/index.html                 Home (editorial cover)
-/about/, /contact/          Trust pages
-/editorial-policy/, /fact-checking/, /corrections/
-/advertising-disclosure/, /privacy/, /cookies/, /terms/
-/money/                     Savings accounts, online banks, investing basics
-/shopping/                  Smart shopping, deals, cashback, meal delivery
-/bills/                     Insurance, phone plans, local services
-/subscriptions/             Website builders, software, Wix vs Squarespace
-/tools/                     Interactive calculators (vanilla JS)
-/sitemap/                   HTML sitemap
-sitemap.xml, robots.txt
-/download.html              Helper page describing how to export/deploy the site
-/content/facebook-hooks.md  Honest Facebook hook system per article
+index.html                          Home
+money/                              Money & Better Returns
+shopping/                           Smart Shopping & Deals
+bills/                              Bills, Insurance & Telecom
+subscriptions/                      Subscriptions & Digital Services
+tools/                              Calculators & Tools
+search/  sitemap/  404.html         Discovery pages
+about/ contact/ editorial-policy/   Trust pages
+fact-checking/ corrections/ advertising-disclosure/
+privacy/ cookies/ terms/
+assets/css/style.css                The single stylesheet
+assets/template-v3.html             Reference markup block
+content/facebook/README.md          Open Graph hooks for external posting
+sitemap.xml  robots.txt
 ```
 
-## Editorial rules
+## Article standard
 
-- No invented prices, rankings, authors, or statistics.
-- Articles are **comparison frameworks**: criteria, methodology, what to verify, and links to primary sources — with a "last verified" note where applicable.
-- `$100 this month` is an aspirational goal, never a promise of savings or results.
-- AdSense/affiliate placeholders are documented as PENDING until real IDs exist.
+Long-form guides include: a narrative lede, stat cards, table of contents, multiple H2 sections, at least two data tables, a formula block where arithmetic matters, callouts, a pull-quote, a figure with caption and alt text, an FAQ accordion, and a sources section. There is deliberately no "quick answer" box — the reader is meant to read.
 
 ## Local preview
 
@@ -35,3 +49,14 @@ sitemap.xml, robots.txt
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
+
+## Deployment
+
+Fully static. Works on GitHub Pages, Cloudflare Pages, Netlify or any web server. For GitHub Pages: Settings → Pages → deploy from branch `main`, root folder.
+
+## Still pending (documented, not hidden)
+
+- AdSense: slot markup is reserved but no publisher ID or ads.txt exists yet, and none is invented.
+- Contact email addresses are placeholders and must be replaced before launch.
+- Privacy and cookie policies are drafts that must match the analytics and advertising actually deployed.
+- Trust pages predate the v6 theme and should be migrated to the same header and footer when convenient.
