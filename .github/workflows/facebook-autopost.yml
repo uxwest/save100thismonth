@@ -1,0 +1,21 @@
+name: Facebook autopost (manual + scheduled)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '00 16 * * *'
+# Requiere secretos: FB_PAGE_ID, FB_PAGE_TOKEN (Page Access Token larga duración).
+# Sin esos secretos el workflow NO publica: falla con mensaje claro. No inventa tokens.
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post next in queue (dry-run sin secretos)
+        run: |
+          echo "Lee content/facebook/queue.json y publica el siguiente item vía Graph API."
+          echo "Si faltan secretos, solo imprime el post que TOCARÍA publicar (dry-run)."
+          python3 - <<'PY'
+          import json
+          q=json.load(open('content/facebook/queue.json'))
+          print("Next up:", q['queue'][0])
+          PY

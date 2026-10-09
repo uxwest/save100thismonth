@@ -1,0 +1,17 @@
+{
+  "page": "PENDING — crear Facebook Page y pegar ID en secreto FB_PAGE_ID",
+  "posting_window": "US Eastern 12:00 / 19:00",
+  "utm": "?utm_source=facebook&utm_medium=social&utm_campaign={slug}",
+  "queue": [
+    {"day": 1, "slug": "best-car-insurance-companies", "url": "https://save100thismonth.com/bills/best-car-insurance-companies/", "hook_variant": "main", "format": "link-in-first-comment", "rpm_tier": "HIGH"},
+    {"day": 2, "slug": "best-high-yield-savings-accounts", "url": "https://save100thismonth.com/money/best-high-yield-savings-accounts/", "hook_variant": "V3", "format": "link-in-first-comment", "rpm_tier": "HIGH"},
+    {"day": 3, "slug": "best-prepaid-phone-plans", "url": "https://save100thismonth.com/bills/best-prepaid-phone-plans/", "hook_variant": "main", "format": "link-in-post", "rpm_tier": "MEDIUM-HIGH"},
+    {"day": 4, "slug": "best-online-banks", "url": "https://save100thismonth.com/money/best-online-banks/", "hook_variant": "V2", "format": "link-in-first-comment", "rpm_tier": "HIGH"},
+    {"day": 5, "slug": "best-credit-card-for-travel", "url": "https://save100thismonth.com/shopping/best-credit-card-for-travel/", "hook_variant": "main", "format": "link-in-post", "rpm_tier": "HIGH"},
+    {"day": 6, "slug": "best-day-trading-platform", "url": "https://save100thismonth.com/money/best-day-trading-platform/", "hook_variant": "main", "format": "link-in-first-comment", "rpm_tier": "HIGH"},
+    {"day": 7, "slug": "invoice-generator", "url": "https://save100thismonth.com/tools/invoice-generator/", "hook_variant": "main", "format": "link-in-post", "rpm_tier": "MEDIUM (pero viral/utilidad)"},
+    {"day": 8, "slug": "best-meal-delivery", "url": "https://save100thismonth.com/shopping/best-meal-delivery/", "hook_variant": "main", "format": "link-in-first-comment", "rpm_tier": "MEDIUM"},
+    {"day": 9, "slug": "best-antivirus-for-mac", "url": "https://save100thismonth.com/shopping/best-antivirus-for-mac/", "hook_variant": "main", "format": "link-in-post", "rpm_tier": "MEDIUM"},
+    {"day": 10, "slug": "wix-vs-squarespace", "url": "https://save100thismonth.com/subscriptions/wix-vs-squarespace-for-a-portfolio/", "hook_variant": "main", "format": "link-in-first-comment", "rpm_tier": "MEDIUM"}
+  ]
+}
