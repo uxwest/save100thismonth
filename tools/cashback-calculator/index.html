@@ -1,1 +1,67 @@
-<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cashback Calculator | Save100ThisMonth</title><link rel="stylesheet" href="../../assets/css/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="logo" href="../../index.html">Save<b>100</b>ThisMonth</a><nav class="main-nav"><a href="../index.html">Tools</a></nav></div></header><main><article class="page"><h1>Cashback Comparison Calculator</h1><label>Groceries/mo<input id="g" type="number" min="0"></label><label>Dining+gas/mo<input id="d" type="number" min="0"></label><label>Other/mo<input id="o" type="number" min="0"></label><label>Card A % (groceries/dining)<input id="ra" type="number" step="0.1"></label><label>Card B % (flat)<input id="rb" type="number" step="0.1"></label><p><button id="c" style="background:#1877F2;color:#fff;border:0;padding:.7rem 1.2rem;border-radius:999px;font-weight:800">Compare</button></p><div class="result" id="r">Enter spending.</div></article><script>document.getElementById('c').onclick=()=>{const g=+document.getElementById('g').value||0,d=+document.getElementById('d').value||0,o=+document.getElementById('o').value||0,ra=+document.getElementById('ra').value,rb=+document.getElementById('rb').value,r=document.getElementById('r');if(isNaN(ra)||isNaN(rb)){r.textContent='Enter rates.';return;}const a=(g+d)*ra/100,b=(g+d+o)*rb/100;r.innerHTML=`A: <b>$${a.toFixed(2)}/mo</b> · B: <b>$${b.toFixed(2)}/mo</b>. Yearly diff: <b>$${((a-b)*12).toFixed(2)}</b>. Subtract annual fees.`};</script></main></body></html>
+<!DOCTYPE html><html lang="en-US"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cashback Comparison Calculator | Save100ThisMonth</title>
+<meta name="description" content="Compare cashback earnings across two cards or programs for your real monthly spending mix, including an annual fee adjustment. Private, in-browser, formula shown.">
+<link rel="canonical" href="https://save100thismonth.com/tools/cashback-calculator/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Save100ThisMonth">
+<meta property="og:title" content="Which cashback card actually pays more for your spending?">
+<meta property="og:description" content="Enter your real spending mix and two rates, and see the annual difference after fees.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head><body>
+<div class="topstrip"><div class="wrap"><span>Free tool · Nothing is uploaded</span><span><a href="../../index.html">← Home</a></span></div></div>
+<header class="site-header"><div class="wrap nav-wrap">
+  <a class="brand" href="../../index.html">Save<span>100</span>ThisMonth</a>
+  <nav class="nav" aria-label="Primary"><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html" aria-current="page">Tools</a></nav>
+  <a class="nav-cta" href="../../search/index.html">Search</a>
+</div></header>
+<main><div class="wrap">
+  <p class="crumbs"><a href="../../index.html">Home</a> › <a href="../index.html">Tools</a> › Cashback comparison</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.3rem)">Cashback Comparison Calculator</h1>
+  <p class="lede" style="max-width:70ch">Ads promise one card beats everything. Reality depends on how you actually spend. Enter your monthly mix and two rewards structures, and see which one genuinely pays more over a year — after any annual fee.</p>
+  <div class="tool">
+    <div class="row2">
+      <div><label for="g">Groceries per month ($)</label><input id="g" type="number" min="0" step="10" value="600"></div>
+      <div><label for="d">Dining, fuel and travel per month ($)</label><input id="d" type="number" min="0" step="10" value="350"></div>
+    </div>
+    <div class="row2">
+      <div><label for="o">Everything else per month ($)</label><input id="o" type="number" min="0" step="10" value="450"></div>
+      <div><label for="f1">Card A annual fee ($)</label><input id="f1" type="number" min="0" step="1" value="0"></div>
+    </div>
+    <div class="row2">
+      <div><label for="ra">Card A: reward rate on groceries, dining and travel (%)</label><input id="ra" type="number" min="0" max="20" step="0.1" value="4"></div>
+      <div><label for="rb">Card B: flat rate on everything (%)</label><input id="rb" type="number" min="0" max="10" step="0.1" value="2"></div>
+    </div>
+    <p style="margin-top:1rem"><button class="btn" id="go" type="button">Compare</button></p>
+    <div class="result" id="out" role="status" aria-live="polite">Press Compare to see the difference.</div>
+    <p class="hint">Formula: Card A = (groceries + dining and travel) at rate A, then everything else at a flat rate of 0 unless you set one. Card B = all spending at its flat rate. Annual fee is subtracted from each card's yearly earnings.</p>
+  </div>
+  <div class="callout warn" style="max-width:760px"><b>Limits.</b> This ignores category caps, rotating categories, redemption minimums and promotional multipliers. Verify each card's current terms with the issuer, and never carry a balance to earn rewards — interest dwarfs any cashback.</div>
+  <p class="meta" style="margin-top:1.2rem">Related: <a href="../../shopping/best-credit-card-for-travel/index.html">Best Credit Card for Travel</a> · <a href="../../money/best-online-banks/index.html">Best Online Banks</a></p>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+  <div class="ft-grid">
+    <div><div class="ft-brand">Save<span>100</span>ThisMonth</div><p class="ft-note">Plain-English comparison guides and free calculators for US households.</p></div>
+    <div><h4>Sections</h4><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html">Tools</a></div>
+    <div><h4>Trust</h4><a href="../../about/index.html">About</a><a href="../../editorial-policy/index.html">Editorial Policy</a><a href="../../advertising-disclosure/index.html">Advertising Disclosure</a></div>
+    <div><h4>Legal</h4><a href="../../privacy/index.html">Privacy</a><a href="../../terms/index.html">Terms</a><a href="../../contact/index.html">Contact</a></div>
+  </div>
+  <div class="ft-legal"><span>© 2025 Save100ThisMonth.com</span><span>Estimates only, not financial advice.</span></div>
+</div></footer>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);};
+  $('go').addEventListener('click',function(){
+    var g=parseFloat($('g').value)||0, d=parseFloat($('d').value)||0, o=parseFloat($('o').value)||0;
+    var ra=parseFloat($('ra').value), rb=parseFloat($('rb').value), f1=parseFloat($('f1').value)||0;
+    var out=$('out');
+    if(isNaN(ra)||isNaN(rb)){ out.textContent='Enter valid reward rates for both cards.'; return; }
+    var aMonthly=(g+d)*ra/100, bMonthly=(g+d+o)*rb/100;
+    var aYear=aMonthly*12-f1, bYear=bMonthly*12;
+    var diff=aYear-bYear;
+    out.innerHTML='Card A earns about <b>$'+aMonthly.toFixed(2)+'/month</b>, Card B about <b>$'+bMonthly.toFixed(2)+'/month</b>.<br>'+
+      'Over a year, after Card A\u2019s $'+f1.toFixed(0)+' fee: A \u2248 <b>$'+aYear.toFixed(0)+'</b>, B \u2248 <b>$'+bYear.toFixed(0)+'</b>.<br>'+
+      '<span class="hint">'+(Math.abs(diff)<1?'They are effectively equal for this spending mix.':(diff>0?'Card A is ahead by about $'+diff.toFixed(0)+' a year.':'Card B is ahead by about $'+Math.abs(diff).toFixed(0)+' a year.'))+'</span>';
+  });
+})();
+</script>
+</body></html>

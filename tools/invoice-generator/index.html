@@ -1,1 +1,77 @@
-<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Free Invoice Generator (Private, In-Browser) | Save100ThisMonth</title><meta name="description" content="Free invoice generator for freelancers: no signup, no upload, print to PDF. Your data never leaves your browser."><link rel="canonical" href="https://save100thismonth.com/tools/invoice-generator/"><meta property="og:type" content="article"><meta property="og:site_name" content="Save100ThisMonth"><meta property="og:title" content="Free invoice in 60 seconds. No signup. Nothing uploaded."><meta property="og:description" content="Freelancers: build a clean invoice in your browser and print to PDF. Private by design."><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="../../assets/css/style.css"></head><body><div class="topbar"><div class="topbar-inner"><span>Free tool · Private · No signup</span><span>Nothing uploaded</span></div></div><header class="site-header"><div class="header-inner"><a class="logo" href="../../index.html">Save<b>100</b>ThisMonth</a><span class="tagline">Spend smarter. Get more.</span><nav class="main-nav" aria-label="Main"><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html">Tools</a><a href="../../search/index.html">Search</a></nav></div></header><main><article class="page"><h1>Free Invoice Generator</h1><p class="meta">Sub-keywords: free invoice template · freelancer invoice · invoice PDF no signup · self-employed billing</p><div class="quick"><strong>Why this one:</strong> runs 100% in your browser — nothing uploaded or stored. Fill → preview → print to PDF. Refresh erases everything.</div><label>From<input id="f" placeholder="Jane Doe Design"></label><label>To<input id="t" placeholder="Acme LLC"></label><label>Description<input id="d" placeholder="Logo design — 2 revisions"></label><label>Amount USD<input id="a" type="number" min="0" step="0.01"></label><p><button id="c" style="background:#1877F2;color:#fff;border:0;padding:.7rem 1.2rem;border-radius:999px;font-weight:800">Build preview</button></p><div class="result" id="r">Fill fields.</div><div class="adslot">Ad slot — PENDING</div></article><script>document.getElementById('c').onclick=()=>{const f=document.getElementById('f').value,t=document.getElementById('t').value,d=document.getElementById('d').value,a=parseFloat(document.getElementById('a').value),r=document.getElementById('r');if(!f||!t||!d||isNaN(a)){r.textContent='Fill all fields.';return;}r.innerHTML=`<b>INVOICE</b><br>From ${f} → ${t}<br>${d}<br><b>Total: $${a.toFixed(2)}</b><br><span class="meta">Print → Save as PDF. Nothing uploaded.</span>`};</script></main><footer class="site-footer"><div class="footer-inner"><div><h4>Sections</h4><a href="../index.html">Tools</a></div><div><h4>Trust</h4><a href="../../about/index.html">About</a></div></div><div class="footer-bottom" style="max-width:1160px;margin:0 auto;padding:1rem;color:#9fb0c9;font-size:.8rem">© 2025 Save100ThisMonth.com</div></footer></body></html>
+<!DOCTYPE html><html lang="en-US"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Invoice Generator (Private, In-Browser) | Save100ThisMonth</title>
+<meta name="description" content="Create a clean, professional invoice for free: no signup, no upload, print to PDF. Everything runs in your browser and nothing is stored.">
+<link rel="canonical" href="https://save100thismonth.com/tools/invoice-generator/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Save100ThisMonth">
+<meta property="og:title" content="A free invoice in 60 seconds. No signup. Nothing uploaded.">
+<meta property="og:description" content="Freelancers: build a clean invoice in your browser and print to PDF. Private by design.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head><body>
+<div class="topstrip"><div class="wrap"><span>Free tool · Private · No signup</span><span><a href="../../index.html">← Home</a></span></div></div>
+<header class="site-header"><div class="wrap nav-wrap">
+  <a class="brand" href="../../index.html">Save<span>100</span>ThisMonth</a>
+  <nav class="nav" aria-label="Primary"><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html" aria-current="page">Tools</a></nav>
+  <a class="nav-cta" href="../../search/index.html">Search</a>
+</div></header>
+<main><div class="wrap">
+  <p class="crumbs"><a href="../../index.html">Home</a> › <a href="../index.html">Tools</a> › Invoice generator</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.3rem)">Free Invoice Generator</h1>
+  <p class="lede" style="max-width:70ch">Most “free” invoice tools want an account, and some want your client data. This one asks for nothing. Fill the fields, build a preview, print to PDF. Refresh the page and every trace is gone, because nothing is ever sent or stored.</p>
+  <div class="tool">
+    <div class="row2">
+      <div><label for="f">Your name or business</label><input id="f" type="text" placeholder="Jane Doe Design"></div>
+      <div><label for="t">Client name</label><input id="t" type="text" placeholder="Acme LLC"></div>
+    </div>
+    <div class="row2">
+      <div><label for="n">Invoice number</label><input id="n" type="text" placeholder="001"></div>
+      <div><label for="dt">Invoice date</label><input id="dt" type="date"></div>
+    </div>
+    <label for="d">Description of work</label>
+    <input id="d" type="text" placeholder="Logo design — two rounds of revisions">
+    <div class="row2">
+      <div><label for="a">Amount ($)</label><input id="a" type="number" min="0" step="0.01" placeholder="450.00"></div>
+      <div><label for="c">Currency symbol</label><input id="c" type="text" value="$" maxlength="3"></div>
+    </div>
+    <p style="margin-top:1rem"><button class="btn" id="go" type="button">Build preview</button></p>
+    <div id="out" role="status" aria-live="polite"></div>
+    <p class="hint">Privacy: this tool does not upload, store or transmit anything. It is a document template, not accounting or tax software — check your own invoicing and tax requirements.</p>
+  </div>
+  <p class="meta" style="margin-top:1.2rem">Related: <a href="../subscription-calculator/index.html">Subscription Savings Calculator</a> · <a href="../../subscriptions/best-free-website-builder-for-a-business/index.html">Free Website Builder for a Business</a></p>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+  <div class="ft-grid">
+    <div><div class="ft-brand">Save<span>100</span>ThisMonth</div><p class="ft-note">Plain-English comparison guides and free calculators for US households.</p></div>
+    <div><h4>Sections</h4><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html">Tools</a></div>
+    <div><h4>Trust</h4><a href="../../about/index.html">About</a><a href="../../editorial-policy/index.html">Editorial Policy</a><a href="../../advertising-disclosure/index.html">Advertising Disclosure</a></div>
+    <div><h4>Legal</h4><a href="../../privacy/index.html">Privacy</a><a href="../../terms/index.html">Terms</a><a href="../../contact/index.html">Contact</a></div>
+  </div>
+  <div class="ft-legal"><span>© 2025 Save100ThisMonth.com</span><span>Nothing is uploaded or stored by this tool.</span></div>
+</div></footer>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);};
+  $('go').addEventListener('click',function(){
+    var f=$('f').value.trim(), t=$('t').value.trim(), n=$('n').value.trim(),
+        dt=$('dt').value, d=$('d').value.trim(), a=parseFloat($('a').value), c=$('c').value||'$';
+    var out=$('out');
+    if(!f||!t||!d||isNaN(a)||a<0){ out.innerHTML='<div class="result">Please fill your name, the client name, a description and a valid amount.</div>'; return; }
+    var dateStr = dt ? new Date(dt+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : 'Not specified';
+    out.innerHTML='<div class="result" style="background:#fff;border:1px solid var(--line)">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">'+
+        '<div><div style="font-family:var(--serif);font-size:1.5rem">INVOICE</div><div class="meta">'+(n?('No. '+n):'Draft')+'</div></div>'+
+        '<div class="meta" style="text-align:right">Date: '+dateStr+'</div>'+
+      '</div>'+
+      '<hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">'+
+      '<p style="margin:0"><strong>From</strong><br>'+f+'</p>'+
+      '<p style="margin:.8rem 0 0"><strong>Bill to</strong><br>'+t+'</p>'+
+      '<table style="margin-top:1rem;min-width:0"><thead><tr><th>Description</th><th style="text-align:right">Amount</th></tr></thead>'+
+      '<tbody><tr><td>'+d+'</td><td style="text-align:right">'+c+a.toFixed(2)+'</td></tr></tbody></table>'+
+      '<p style="text-align:right;margin-top:1rem;font-size:1.3rem;font-family:var(--serif)"><strong>Total due: '+c+a.toFixed(2)+'</strong></p>'+
+      '<p class="hint">Print this page (Ctrl or Cmd + P) and choose “Save as PDF” to export a clean invoice file.</p>'+
+    '</div>';
+  });
+})();
+</script>
+</body></html>
