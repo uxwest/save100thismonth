@@ -1,33 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Get the site | Save100ThisMonth</title>
-<link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <div class="header-inner">
-    <a class="logo" href="https://github.com/uxwest/save100thismonth">Save<span>100</span>ThisMonth</a>
-  </div>
-</header>
-<main>
-<article class="page">
-<h1>Get this site</h1>
-<h2>Option A — Download the ZIP from GitHub</h2>
-<ol>
-<li>Open the repository: <a href="https://github.com/uxwest/save100thismonth" rel="noopener">github.com/uxwest/save100thismonth</a></li>
-<li>Click the green <strong>Code</strong> button → <strong>Download ZIP</strong>.</li>
-<li>Unzip it — the site is the folder itself (index.html at the root).</li>
-</ol>
-<h2>Option B — Clone it</h2>
-<p><code>git clone https://github.com/uxwest/save100thismonth.git</code></p>
-<h2>Preview locally</h2>
-<p>From the project folder: <code>python3 -m http.server 8000</code> then open <code>http://localhost:8000</code>.</p>
-<h2>Publish it</h2>
-<p>The site is 100% static. It works on GitHub Pages, Cloudflare Pages, Netlify or any web server — no build step, no database.</p>
+<!DOCTYPE html><html lang='en-US'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<meta name='robots' content='noindex,follow'>
+<title>Site files | Save100ThisMonth</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@500&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='assets/css/style.css'>
+</head><body>
+<header class='hdr'><div class='w hdr-in'><a class='logo' href='index.html'>Save<b>100</b>ThisMonth</a><nav class='nav' aria-label='Primary'><a href='money/index.html'>Money</a><a href='shopping/index.html'>Shopping</a><a href='bills/index.html'>Bills</a><a href='subscriptions/index.html'>Subscriptions</a><a href='tools/index.html'>Tools</a></nav><a class='srch' href='search/index.html'>Search</a></div></header>
+<main class='w' style='padding-top:20px'>
+<article class='post' style='max-width:760px;margin:0 auto'>
+ <h1>Site files and deployment</h1>
+ <p class='lede'>This site is fully static. No build step, no database, no server-side code.</p>
+ <h2>Structure</h2>
+ <ul>
+  <li><code>assets/css/style.css</code>: the single stylesheet</li>
+  <li><code>assets/js/ui.js</code>: the mobile menu toggle, progressive enhancement only</li>
+  <li><code>assets/img/</code>: SVG illustrations and charts</li>
+  <li>One folder per page, with <code>index.html</code> inside</li>
+ </ul>
+ <h2>Local preview</h2>
+ <div class='formula'>python3 -m http.server 8000
+# then open http://localhost:8000</div>
+ <h2>Deployment</h2>
+ <p>Any static host works: GitHub Pages, Cloudflare Pages, Netlify or a plain web server. For GitHub Pages, set the branch to <code>main</code> and the folder to root.</p>
+ <p class='meta'>This page is marked noindex and is not part of the public sitemap.</p>
 </article>
 </main>
-</body>
-</html>
+<footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='privacy/index.html'>Privacy</a></div></footer>
+<script src='assets/js/ui.js'></script>
+</body></html>

@@ -1,77 +1,87 @@
-<!DOCTYPE html><html lang="en-US"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang='en-US'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
 <title>Free Invoice Generator (Private, In-Browser) | Save100ThisMonth</title>
-<meta name="description" content="Create a clean, professional invoice for free: no signup, no upload, print to PDF. Everything runs in your browser and nothing is stored.">
-<link rel="canonical" href="https://save100thismonth.com/tools/invoice-generator/">
-<meta property="og:type" content="article"><meta property="og:site_name" content="Save100ThisMonth">
-<meta property="og:title" content="A free invoice in 60 seconds. No signup. Nothing uploaded.">
-<meta property="og:description" content="Freelancers: build a clean invoice in your browser and print to PDF. Private by design.">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../../assets/css/style.css">
+<meta name='description' content='Create a clean professional invoice for free: no signup, no upload, print to PDF. Everything runs in your browser and nothing is stored.'>
+<link rel='canonical' href='https://save100thismonth.com/tools/invoice-generator/'>
+<meta property='og:type' content='article'><meta property='og:site_name' content='Save100ThisMonth'>
+<meta property='og:title' content='A free invoice in 60 seconds. No signup. Nothing uploaded.'>
+<meta property='og:description' content='Build a clean invoice in your browser and print to PDF. Private by design.'>
+<meta name='twitter:card' content='summary_large_image'>
+<link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@500&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../../assets/css/style.css'>
 </head><body>
-<div class="topstrip"><div class="wrap"><span>Free tool · Private · No signup</span><span><a href="../../index.html">← Home</a></span></div></div>
-<header class="site-header"><div class="wrap nav-wrap">
-  <a class="brand" href="../../index.html">Save<span>100</span>ThisMonth</a>
-  <nav class="nav" aria-label="Primary"><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html" aria-current="page">Tools</a></nav>
-  <a class="nav-cta" href="../../search/index.html">Search</a>
-</div></header>
-<main><div class="wrap">
-  <p class="crumbs"><a href="../../index.html">Home</a> › <a href="../index.html">Tools</a> › Invoice generator</p>
-  <h1 style="font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.3rem)">Free Invoice Generator</h1>
-  <p class="lede" style="max-width:70ch">Most “free” invoice tools want an account, and some want your client data. This one asks for nothing. Fill the fields, build a preview, print to PDF. Refresh the page and every trace is gone, because nothing is ever sent or stored.</p>
-  <div class="tool">
-    <div class="row2">
-      <div><label for="f">Your name or business</label><input id="f" type="text" placeholder="Jane Doe Design"></div>
-      <div><label for="t">Client name</label><input id="t" type="text" placeholder="Acme LLC"></div>
-    </div>
-    <div class="row2">
-      <div><label for="n">Invoice number</label><input id="n" type="text" placeholder="001"></div>
-      <div><label for="dt">Invoice date</label><input id="dt" type="date"></div>
-    </div>
-    <label for="d">Description of work</label>
-    <input id="d" type="text" placeholder="Logo design — two rounds of revisions">
-    <div class="row2">
-      <div><label for="a">Amount ($)</label><input id="a" type="number" min="0" step="0.01" placeholder="450.00"></div>
-      <div><label for="c">Currency symbol</label><input id="c" type="text" value="$" maxlength="3"></div>
-    </div>
-    <p style="margin-top:1rem"><button class="btn" id="go" type="button">Build preview</button></p>
-    <div id="out" role="status" aria-live="polite"></div>
-    <p class="hint">Privacy: this tool does not upload, store or transmit anything. It is a document template, not accounting or tax software — check your own invoicing and tax requirements.</p>
+<header class='hdr'><div class='w hdr-in'><a class='logo' href='../../index.html'>Save<b>100</b>ThisMonth</a><nav class='nav' aria-label='Primary'><a href='../../money/index.html'>Money</a><a href='../../shopping/index.html'>Shopping</a><a href='../../bills/index.html'>Bills</a><a href='../../subscriptions/index.html'>Subscriptions</a><a href='../index.html' aria-current='page'>Tools</a></nav><a class='srch' href='../../search/index.html'>Search</a></div></header>
+<main class='w grid'>
+<article class='post'>
+ <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
+ <span class='kicker'>Tool &middot; Freelancers</span>
+ <h1>Free invoice generator</h1>
+ <div class='byline'><span>Runs in your browser</span><span>No signup</span><span>Nothing uploaded</span></div>
+ <p class='lede'>Most “free” invoice tools want an account. Some want your client data. This one asks for nothing.</p>
+ <p>Fill the fields, build a preview, print to PDF. Refresh the page and every trace is gone, because nothing is ever sent or stored.</p>
+
+ <section class='tool' aria-label='Invoice generator'>
+  <div class='f2'>
+   <div><label for='f'>Your name or business</label><input id='f' type='text' placeholder='Jane Doe Design'></div>
+   <div><label for='t'>Client name</label><input id='t' type='text' placeholder='Acme LLC'></div>
   </div>
-  <p class="meta" style="margin-top:1.2rem">Related: <a href="../subscription-calculator/index.html">Subscription Savings Calculator</a> · <a href="../../subscriptions/best-free-website-builder-for-a-business/index.html">Free Website Builder for a Business</a></p>
-</div></main>
-<footer class="site-footer"><div class="wrap">
-  <div class="ft-grid">
-    <div><div class="ft-brand">Save<span>100</span>ThisMonth</div><p class="ft-note">Plain-English comparison guides and free calculators for US households.</p></div>
-    <div><h4>Sections</h4><a href="../../money/index.html">Money</a><a href="../../shopping/index.html">Shopping</a><a href="../../bills/index.html">Bills</a><a href="../../subscriptions/index.html">Subscriptions</a><a href="../index.html">Tools</a></div>
-    <div><h4>Trust</h4><a href="../../about/index.html">About</a><a href="../../editorial-policy/index.html">Editorial Policy</a><a href="../../advertising-disclosure/index.html">Advertising Disclosure</a></div>
-    <div><h4>Legal</h4><a href="../../privacy/index.html">Privacy</a><a href="../../terms/index.html">Terms</a><a href="../../contact/index.html">Contact</a></div>
+  <div class='f2'>
+   <div><label for='n'>Invoice number</label><input id='n' type='text' placeholder='001'></div>
+   <div><label for='dt'>Invoice date</label><input id='dt' type='date'></div>
   </div>
-  <div class="ft-legal"><span>© 2025 Save100ThisMonth.com</span><span>Nothing is uploaded or stored by this tool.</span></div>
-</div></footer>
+  <label for='d'>Description of work</label>
+  <input id='d' type='text' placeholder='Logo design, two rounds of revisions'>
+  <div class='f2'>
+   <div><label for='a'>Amount</label><input id='a' type='number' min='0' step='0.01' placeholder='450.00'></div>
+   <div><label for='c'>Currency symbol</label><input id='c' type='text' value='$' maxlength='3'></div>
+  </div>
+  <p style='margin-top:14px'><button class='btn' id='go' type='button'>Build preview</button></p>
+  <div id='out'></div>
+  <p class='meta'>Privacy: this tool does not upload, store or transmit anything. It is a document template, not accounting or tax software. Check your own invoicing and tax requirements.</p>
+ </section>
+
+ <h2>What makes a good invoice</h2>
+ <ul class='vlist'>
+  <li><strong>A unique number.</strong> Sequential invoice numbers make bookkeeping and disputes far easier.</li>
+  <li><strong>A date and a due date.</strong> “Net 30” means nothing unless the start date is on the document.</li>
+  <li><strong>One clear description per line.</strong> Vague line items invite late payment.</li>
+  <li><strong>Your payment details.</strong> Do not make the client hunt for how to pay you.</li>
+ </ul>
+ <div class='note tip'><b>Getting paid faster</b>Shorten the payment window for smaller jobs, send the invoice the same day you deliver, and follow up the day after it is due. Most late payment is forgetfulness, not refusal.</div>
+
+ <h2>Frequently asked questions</h2>
+ <div class='faq'>
+  <details><summary>Is my data saved anywhere?</summary><p>No. The tool runs entirely in your browser. Closing or refreshing the page erases everything.</p></details>
+  <details><summary>How do I export the invoice?</summary><p>Press Control or Command and P, then choose “Save as PDF” in the print dialog.</p></details>
+  <details><summary>Is this a substitute for accounting software?</summary><p>No. It produces a document. It does not track payments, calculate tax or keep records. Use proper accounting software for that.</p></details>
+  <details><summary>Can I add multiple line items?</summary><p>This version handles one line. Use the description field for a combined item, or repeat the process per line for larger jobs.</p></details>
+ </div>
+</article>
+<aside class='side'><div class='side-box'><h4>Related</h4>
+ <a class='ri' href='../subscription-creep-calculator/index.html'><img src='../../assets/img/doc.svg' alt='' width='70' height='46'><span>Subscription creep calculator<small>Tool</small></span></a>
+ <a class='ri' href='../../subscriptions/best-free-website-builder-for-a-business/index.html'><img src='../../assets/img/web.svg' alt='' width='70' height='46'><span>Free website builder<small>Subscriptions &middot; 10 min</small></span></a>
+ <a class='ri' href='../../subscriptions/wix-vs-squarespace-for-a-portfolio/index.html'><img src='../../assets/img/web.svg' alt='' width='70' height='46'><span>Wix vs Squarespace<small>Subscriptions &middot; 10 min</small></span></a>
+</div></aside>
+</main>
+<footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='../../privacy/index.html'>Privacy</a></div></footer>
+<script src='../../assets/js/ui.js'></script>
 <script>
 (function(){
-  var $=function(i){return document.getElementById(i);};
-  $('go').addEventListener('click',function(){
-    var f=$('f').value.trim(), t=$('t').value.trim(), n=$('n').value.trim(),
-        dt=$('dt').value, d=$('d').value.trim(), a=parseFloat($('a').value), c=$('c').value||'$';
-    var out=$('out');
-    if(!f||!t||!d||isNaN(a)||a<0){ out.innerHTML='<div class="result">Please fill your name, the client name, a description and a valid amount.</div>'; return; }
-    var dateStr = dt ? new Date(dt+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : 'Not specified';
-    out.innerHTML='<div class="result" style="background:#fff;border:1px solid var(--line)">'+
-      '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">'+
-        '<div><div style="font-family:var(--serif);font-size:1.5rem">INVOICE</div><div class="meta">'+(n?('No. '+n):'Draft')+'</div></div>'+
-        '<div class="meta" style="text-align:right">Date: '+dateStr+'</div>'+
-      '</div>'+
-      '<hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">'+
-      '<p style="margin:0"><strong>From</strong><br>'+f+'</p>'+
-      '<p style="margin:.8rem 0 0"><strong>Bill to</strong><br>'+t+'</p>'+
-      '<table style="margin-top:1rem;min-width:0"><thead><tr><th>Description</th><th style="text-align:right">Amount</th></tr></thead>'+
-      '<tbody><tr><td>'+d+'</td><td style="text-align:right">'+c+a.toFixed(2)+'</td></tr></tbody></table>'+
-      '<p style="text-align:right;margin-top:1rem;font-size:1.3rem;font-family:var(--serif)"><strong>Total due: '+c+a.toFixed(2)+'</strong></p>'+
-      '<p class="hint">Print this page (Ctrl or Cmd + P) and choose “Save as PDF” to export a clean invoice file.</p>'+
-    '</div>';
-  });
+ function $(i){return document.getElementById(i);}
+ $('go').onclick=function(){
+  var f=$('f').value.trim(),t=$('t').value.trim(),n=$('n').value.trim(),dt=$('dt').value,d=$('d').value.trim(),a=parseFloat($('a').value),c=$('c').value||'$';
+  if(!f||!t||!d||isNaN(a)||a<0){$('out').innerHTML='<div class="note warn" style="margin-top:14px">Please fill your name, the client name, a description and a valid amount.</div>';return;}
+  var ds=dt?new Date(dt+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}):'Not specified';
+  $('out').innerHTML='<div class="result" style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:16px">'+
+   '<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px"><div><div style="font-family:Roboto;font-weight:900;font-size:26px;letter-spacing:-.5px">INVOICE</div><div class="meta">'+(n?('No. '+n):'Draft')+'</div></div><div class="meta" style="text-align:right">Date: '+ds+'</div></div>'+
+   '<hr style="border:0;border-top:1px solid var(--line);margin:16px 0">'+
+   '<p style="margin:0"><strong>From</strong><br>'+f+'</p>'+
+   '<p style="margin:12px 0 0"><strong>Bill to</strong><br>'+t+'</p>'+
+   '<table class="tbl" style="min-width:0;margin-top:16px"><thead><tr><th>Description</th><th style="text-align:right">Amount</th></tr></thead><tbody><tr><td>'+d+'</td><td class="num">'+c+a.toFixed(2)+'</td></tr></tbody></table>'+
+   '<p style="text-align:right;margin-top:16px;font-family:Roboto;font-weight:900;font-size:22px">Total due: '+c+a.toFixed(2)+'</p>'+
+   '<p class="meta">Print this page, then choose “Save as PDF” to export a clean file.</p></div>';
+ };
 })();
 </script>
 </body></html>
