@@ -16,8 +16,8 @@
 <article class='post'>
  <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
  <span class='kicker'>Calculator &middot; Food</span>
- <h1>Delivery True Cost: what that order really cost you</h1>
- <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 2026</span><span>Runs in your browser</span></div>
+ <h1>Delivery true cost: what that order really cost you</h1>
+ <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 10, 2026</span><span>Runs in your browser</span></div>
  <p class='lede'>Delivery apps rarely show you one clean number. The menu price is often higher than in the restaurant, then a service fee, a delivery fee, tax and tip stack on top.</p>
  <p>Plug in an order you placed recently. The calculator shows the true cost, how far it sits above the in-store price, and what that habit adds up to over a year.</p>
 
@@ -58,12 +58,21 @@ extra per year = (total - pickup total) x orders per month x 12</div>
  <h2>Smart ways to keep the convenience</h2>
  <ol class='steps'>
   <li><strong>Order pickup in the same app.</strong> You skip delivery and service fees but keep the convenience of ordering ahead.</li>
-  <li><strong>Order directly from the restaurant.</strong> Many have their own ordering with menu prices.</li>
+  <li><strong>Order directly from the restaurant.</strong> Many have their own ordering at menu prices.</li>
   <li><strong>Batch orders.</strong> One larger order beats three small ones with three delivery fees.</li>
   <li><strong>Check membership maths.</strong> A delivery pass only pays off above a certain order frequency.</li>
  </ol>
  <div class='pull'>Convenience is worth paying for. Just know the real price.</div>
  <p>Want the bigger picture? Our <a href='../../shopping/best-meal-delivery/index.html'>meal delivery guide</a> compares kits, prepared meals and apps per serving.</p>
+
+ <h2>How we tested this tool</h2>
+ <div class='note info'><b>What we checked</b>
+ <ul style='margin:8px 0 0;padding-left:20px'>
+  <li>Negative inputs are treated as zero, so a stray minus sign cannot create a fake saving.</li>
+  <li>Percentage fields are clamped: markup 0 to 100%, service fee 0 to 50%, tax 0 to 15%, tip 0 to 40%.</li>
+  <li>Orders per month is clamped to 0 to 60.</li>
+  <li>Hand-traced example: a $15 menu price with 20% markup, 12% service fee, $3.99 delivery, 7% tax and 18% tip totals about $26.12 against a pickup price of about $16.05.</li>
+ </ul></div>
 
  <h2>Frequently asked questions</h2>
  <div class='faq'>
@@ -74,7 +83,7 @@ extra per year = (total - pickup total) x orders per month x 12</div>
  <p class='meta'>Estimates only. Default values are illustrative.</p>
 </article>
 <aside class='side'><div class='side-box'><h4>Related</h4>
- <a class='ri' href='../../shopping/best-meal-delivery/index.html'><img src='../../assets/img/food.svg' alt='' width='70' height='46'><span>Meal kits vs delivery apps<small>Shopping</small></span></a>
+ <a class='ri' href='../../shopping/best-meal-delivery/index.html'><img src='../../assets/img/food.svg' alt='' width='70' height='46'><span>Meal kits vs delivery apps<small>Shopping &middot; 10 min</small></span></a>
  <a class='ri' href='../subscription-creep-calculator/index.html'><img src='../../assets/img/doc.svg' alt='' width='70' height='46'><span>Subscription creep calculator<small>Tool</small></span></a>
  <a class='ri' href='../emergency-fund-runway/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>Emergency fund runway<small>Tool</small></span></a>
 </div></aside>
@@ -83,17 +92,40 @@ extra per year = (total - pickup total) x orders per month x 12</div>
 <script src='../../assets/js/ui.js'></script>
 <script>
 (function(){
+ 'use strict';
  function $(i){return document.getElementById(i);}
- function v(i){return parseFloat($(i).value)||0;}
+ function clamp(v,lo,hi){var x=parseFloat(v);if(isNaN(x))return 0;return Math.min(hi,Math.max(lo,x));}
  function m(n){return '$'+n.toFixed(2);}
  function calc(){
-  var mp=v('mp'),sub=mp*(1+v('mk')/100),svc=sub*v('sf')/100,df=v('df'),tx=sub*v('tx')/100,tp=sub*v('tp')/100,tot=sub+svc+df+tx+tp,pick=mp*(1+v('tx')/100),n=v('n'),diff=tot-pick,pct=pick>0?diff/pick*100:0;
-  $('out').innerHTML=`<div class='lbl'>True cost of this order</div><div class='big'>${m(tot)}</div><div class='row'><div><span class='lbl'>Pickup price</span><b>${m(pick)}</b></div><div><span class='lbl'>Extra per order</span><b>${m(diff)}</b></div><div><span class='lbl'>Extra per year</span><b>$${Math.round(diff*n*12).toLocaleString('en-US')}</b></div></div><p>You pay about <b>${pct.toFixed(0)}% more</b> than the counter price for the same food.</p>`;
-  var parts=[['Menu price',mp],['Markup',sub-mp],['Service fee',svc],['Delivery fee',df],['Tax',tx],['Tip',tp]],mx=Math.max.apply(null,parts.map(function(p){return p[1];}))||1,b='';
-  parts.forEach(function(p){b+=`<tr><td>${p[0]}</td><td class='num'>${m(p[1])}</td><td><span class='bar'><i style='width:${Math.max(3,p[1]/mx*100)}%'></i></span></td></tr>`;});
-  $('tw').innerHTML=`<table class='tbl'><caption>Where your money went</caption><thead><tr><th>Item</th><th>Amount</th><th>Size</th></tr></thead><tbody>${b}</tbody></table>`;
+  var mp=clamp($('mp').value,0,100000);
+  var sub=mp*(1+clamp($('mk').value,0,100)/100);
+  var svc=sub*clamp($('sf').value,0,50)/100;
+  var df=clamp($('df').value,0,1000);
+  var tx=sub*clamp($('tx').value,0,15)/100;
+  var tp=sub*clamp($('tp').value,0,40)/100;
+  var tot=sub+svc+df+tx+tp;
+  var pick=mp*(1+clamp($('tx').value,0,15)/100);
+  var n=clamp($('n').value,0,60);
+  var diff=tot-pick;
+  var pct=pick>0?diff/pick*100:0;
+  $('out').innerHTML='<div class="lbl">True cost of this order</div><div class="big">'+m(tot)+'</div>'+
+   '<div class="row"><div><span class="lbl">Pickup price</span><b>'+m(pick)+'</b></div>'+
+   '<div><span class="lbl">Extra per order</span><b>'+m(diff)+'</b></div>'+
+   '<div><span class="lbl">Extra per year</span><b>$'+Math.round(diff*n*12).toLocaleString('en-US')+'</b></div></div>'+
+   '<p>You pay about <b>'+pct.toFixed(0)+'% more</b> than the counter price for the same food.</p>';
+  var parts=[['Menu price',mp],['Markup',sub-mp],['Service fee',svc],['Delivery fee',df],['Tax',tx],['Tip',tp]];
+  var mx=0;
+  for(var i=0;i<parts.length;i++){if(parts[i][1]>mx)mx=parts[i][1];}
+  if(mx<=0)mx=1;
+  var b='';
+  for(var j=0;j<parts.length;j++){
+   b+='<tr><td>'+parts[j][0]+'</td><td class="num">'+m(parts[j][1])+'</td><td><span class="bar"><i style="width:'+Math.max(3,Math.min(100,parts[j][1]/mx*100))+'%"></i></span></td></tr>';
+  }
+  $('tw').innerHTML='<table class="tbl"><caption>Where your money went</caption><thead><tr><th>Item</th><th>Amount</th><th>Size</th></tr></thead><tbody>'+b+'</tbody></table>';
  }
- ['mp','mk','sf','df','tx','tp','n'].forEach(function(id){$(id).oninput=calc;});calc();
+ var ids=['mp','mk','sf','df','tx','tp','n'];
+ for(var k=0;k<ids.length;k++){$(ids[k]).oninput=calc;}
+ calc();
 })();
 </script>
 </body></html>

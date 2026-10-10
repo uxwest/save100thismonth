@@ -16,8 +16,8 @@
 <article class='post'>
  <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
  <span class='kicker'>Calculator &middot; Subscriptions</span>
- <h1>Subscription Creep Calculator: what your subscriptions really cost</h1>
- <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 2026</span><span>Runs in your browser</span></div>
+ <h1>Subscription creep calculator: what your subscriptions really cost</h1>
+ <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 10, 2026</span><span>Runs in your browser</span></div>
  <p class='lede'>Nobody signs up for a $1,500-a-year habit. You sign up for a $9.99 trial. Then another. Then a price bump you never notice. That slow pile-up has a name: subscription creep.</p>
  <p>This tool adds it all up. List every recurring charge, and you will see the monthly total, the 1, 5 and 10-year cost, which services cost you the most, and what the same money could have grown into.</p>
 
@@ -71,6 +71,16 @@ example          $80/month, 5%, 120 months  -> about $12,400</div>
  <p>Annual plans often save 15 to 20%. But they only win if you keep the service all year.</p>
  <p>Quick rule: divide the annual price by the monthly price. That is your break-even month. If you are not confident you will still use it after that month, stay monthly.</p>
 
+ <h2>How we tested this tool</h2>
+ <div class='note info'><b>What we checked</b>
+ <ul style='margin:8px 0 0;padding-left:20px'>
+  <li>Empty rows and blank price fields are ignored rather than counted as zero.</li>
+  <li>Negative prices are rejected. Return and price-increase inputs are clamped to sensible ranges (0 to 15% and 0 to 30%).</li>
+  <li>A zero return falls back to simple multiplication instead of dividing by zero.</li>
+  <li>Hand-traced example: $80/month at 5% for 120 months gives about $12,380, matching the formula above.</li>
+  <li>The share bars use the largest item as the baseline, so they cannot exceed 100%.</li>
+ </ul></div>
+
  <h2>Frequently asked questions</h2>
  <div class='faq'>
   <details><summary>Is my data saved anywhere?</summary><p>No. Everything runs in your browser. Close the tab and it is gone.</p></details>
@@ -83,44 +93,63 @@ example          $80/month, 5%, 120 months  -> about $12,400</div>
 <aside class='side'><div class='side-box'><h4>Related</h4>
  <a class='ri' href='../real-raise-calculator/index.html'><img src='../../assets/img/chart.svg' alt='' width='70' height='46'><span>Did your raise beat inflation?<small>Tool</small></span></a>
  <a class='ri' href='../delivery-true-cost/index.html'><img src='../../assets/img/food.svg' alt='' width='70' height='46'><span>The true cost of delivery<small>Tool</small></span></a>
- <a class='ri' href='../../subscriptions/wix-vs-squarespace-for-a-portfolio/index.html'><img src='../../assets/img/web.svg' alt='' width='70' height='46'><span>Wix vs Squarespace<small>Subscriptions</small></span></a>
- <a class='ri' href='../../money/best-high-yield-savings-accounts/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>High-yield savings checklist<small>Money</small></span></a>
+ <a class='ri' href='../../subscriptions/wix-vs-squarespace-for-a-portfolio/index.html'><img src='../../assets/img/web.svg' alt='' width='70' height='46'><span>Wix vs Squarespace<small>Subscriptions &middot; 10 min</small></span></a>
+ <a class='ri' href='../../money/best-high-yield-savings-accounts/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>High-yield savings checklist<small>Money &middot; 13 min</small></span></a>
 </div></aside>
 </main>
 <footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='../../privacy/index.html'>Privacy</a></div></footer>
 <script src='../../assets/js/ui.js'></script>
 <script>
 (function(){
+ 'use strict';
  var rows=document.getElementById('rows');
  function clean(s){return String(s).replace(/[<>&]/g,'');}
  function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+ function clamp(v,lo,hi){var x=parseFloat(v);if(isNaN(x))return lo;return Math.min(hi,Math.max(lo,x));}
  function add(n,p){
   var d=document.createElement('div');d.className='f3';
-  d.innerHTML=`<div><label>Service</label><input class='sn' type='text'></div><div><label>$ per month</label><input class='sp' type='number' min='0' step='0.01'></div><button type='button' class='xbtn' aria-label='Remove'>&times;</button>`;
+  d.innerHTML='<div><label>Service</label><input class="sn" type="text"></div><div><label>$ per month</label><input class="sp" type="number" min="0" step="0.01"></div><button type="button" class="xbtn" aria-label="Remove">&times;</button>';
   d.querySelector('.sn').value=n;d.querySelector('.sp').value=p;
   d.querySelector('.xbtn').onclick=function(){d.remove();calc();};
-  d.querySelectorAll('input').forEach(function(i){i.oninput=calc;});
+  var ins=d.querySelectorAll('input');
+  for(var i=0;i<ins.length;i++){ins[i].oninput=calc;}
   rows.appendChild(d);
  }
  function calc(){
-  var items=[];
-  rows.querySelectorAll('.f3').forEach(function(d){var p=parseFloat(d.querySelector('.sp').value)||0;if(p>0)items.push({n:clean(d.querySelector('.sn').value||'Subscription'),p:p});});
-  var m=items.reduce(function(a,b){return a+b.p;},0);
-  var rr=(parseFloat(document.getElementById('r').value)||0)/100/12;
-  var h=(parseFloat(document.getElementById('hike').value)||0)/100;
+  // gather only valid positive prices
+  var items=[],nodes=rows.querySelectorAll('.f3');
+  for(var i=0;i<nodes.length;i++){
+   var raw=parseFloat(nodes[i].querySelector('.sp').value);
+   if(!isNaN(raw)&&raw>0){
+    items.push({n:clean(nodes[i].querySelector('.sn').value||'Subscription'),p:Math.min(raw,50000)});
+   }
+  }
+  var m=0;for(var j=0;j<items.length;j++)m+=items[j].p;
+  var rr=clamp(document.getElementById('r').value,0,15)/100/12;
+  var h=clamp(document.getElementById('hike').value,0,30)/100;
   function cost(years,base){var t=0;for(var y=0;y<years;y++)t+=base*12*Math.pow(1+h,y);return t;}
+  // guard division by zero when the return is 0
   var fv=rr>0?m*(Math.pow(1+rr,120)-1)/rr:m*120;
   var out=document.getElementById('out'),tw=document.getElementById('tw');
-  if(!items.length){out.innerHTML='<p>Add at least one subscription with a price.</p>';tw.innerHTML='';return;}
-  out.innerHTML=`<div class='lbl'>Your subscriptions over 10 years</div><div class='big'>${money(cost(10,m))}</div><div class='row'><div><span class='lbl'>Per month</span><b>$${m.toFixed(2)}</b></div><div><span class='lbl'>Per year</span><b>${money(m*12)}</b></div><div><span class='lbl'>5 years</span><b>${money(cost(5,m))}</b></div></div><p>Invested instead, the same monthly amount could grow to roughly <b>${money(fv)}</b> in 10 years at your assumed return.</p>`;
+  if(items.length===0){out.innerHTML='<p>Add at least one subscription with a price above zero.</p>';tw.innerHTML='';return;}
+  out.innerHTML='<div class="lbl">Your subscriptions over 10 years</div><div class="big">'+money(cost(10,m))+'</div>'+
+   '<div class="row"><div><span class="lbl">Per month</span><b>$'+m.toFixed(2)+'</b></div>'+
+   '<div><span class="lbl">Per year</span><b>'+money(m*12)+'</b></div>'+
+   '<div><span class="lbl">5 years</span><b>'+money(cost(5,m))+'</b></div></div>'+
+   '<p>Invested instead, the same monthly amount could grow to roughly <b>'+money(fv)+'</b> in 10 years at your assumed return.</p>';
   items.sort(function(a,b){return b.p-a.p;});
-  var max=items[0].p,body='';
-  items.forEach(function(it){body+=`<tr><td>${it.n}</td><td class='num'>$${it.p.toFixed(2)}</td><td class='num'>${money(cost(10,it.p))}</td><td><span class='bar'><i style='width:${Math.max(4,it.p/max*100)}%'></i></span></td></tr>`;});
-  tw.innerHTML=`<table class='tbl'><caption>Biggest offenders first</caption><thead><tr><th>Service</th><th>Monthly</th><th>10 years</th><th>Share</th></tr></thead><tbody>${body}</tbody></table>`;
+  var max=items[0].p||1,body='';
+  for(var k=0;k<items.length;k++){
+   var it=items[k];
+   body+='<tr><td>'+it.n+'</td><td class="num">$'+it.p.toFixed(2)+'</td><td class="num">'+money(cost(10,it.p))+'</td><td><span class="bar"><i style="width:'+Math.max(4,Math.min(100,it.p/max*100))+'%"></i></span></td></tr>';
+  }
+  tw.innerHTML='<table class="tbl"><caption>Biggest offenders first</caption><thead><tr><th>Service</th><th>Monthly</th><th>10 years</th><th>Share</th></tr></thead><tbody>'+body+'</tbody></table>';
  }
- [['Streaming video',15.49],['Music',10.99],['Cloud storage',2.99],['Gym',40],['News app',8]].forEach(function(x){add(x[0],x[1]);});
+ var seeds=[['Streaming video',15.49],['Music',10.99],['Cloud storage',2.99],['Gym',40],['News app',8]];
+ for(var s=0;s<seeds.length;s++)add(seeds[s][0],seeds[s][1]);
  document.getElementById('add').onclick=function(){add('New subscription',9.99);calc();};
- document.getElementById('r').oninput=calc;document.getElementById('hike').oninput=calc;
+ document.getElementById('r').oninput=calc;
+ document.getElementById('hike').oninput=calc;
  calc();
 })();
 </script>

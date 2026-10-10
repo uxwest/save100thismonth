@@ -16,8 +16,8 @@
 <article class='post'>
  <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
  <span class='kicker'>Calculator &middot; Income</span>
- <h1>Real Raise Calculator: did your raise actually beat inflation?</h1>
- <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 2026</span><span>Runs in your browser</span></div>
+ <h1>Real raise calculator: did your raise actually beat inflation?</h1>
+ <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 10, 2026</span><span>Runs in your browser</span></div>
  <p class='lede'>A raise feels like progress. But if prices rose faster than your paycheck, you can earn more dollars and still afford less. Economists call the difference your real wage.</p>
  <p>This calculator compares your raise to inflation and tells you, in plain numbers, whether your buying power went up or down.</p>
 
@@ -64,6 +64,15 @@ break-even    you need a raise equal to inflation just to stand still</div>
  <p>The official rate is an average basket. Your own inflation depends on what you buy.</p>
  <p>If rent, insurance or childcare make up most of your budget and those rose faster, your personal inflation may be higher than the headline. Try entering a higher figure to stress-test your result.</p>
 
+ <h2>How we tested this tool</h2>
+ <div class='note info'><b>What we checked</b>
+ <ul style='margin:8px 0 0;padding-left:20px'>
+  <li>Inflation is clamped to a realistic -20% to +50% range. This prevents a division by zero when someone enters -100%.</li>
+  <li>Raise is clamped to -50% to +200%, so a mistyped extra digit cannot produce an absurd result.</li>
+  <li>Negative salary values are treated as zero.</li>
+  <li>Hand-traced example: a 3% raise against 3.5% inflation gives -0.48% real change, matching the formula above.</li>
+ </ul></div>
+
  <h2>Frequently asked questions</h2>
  <div class='faq'>
   <details><summary>Where do I find the inflation rate?</summary><p>The Bureau of Labor Statistics publishes the Consumer Price Index monthly. Use the 12-month change that matches your raise period.</p></details>
@@ -75,24 +84,38 @@ break-even    you need a raise equal to inflation just to stand still</div>
 <aside class='side'><div class='side-box'><h4>Related</h4>
  <a class='ri' href='../emergency-fund-runway/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>Emergency fund runway<small>Tool</small></span></a>
  <a class='ri' href='../subscription-creep-calculator/index.html'><img src='../../assets/img/doc.svg' alt='' width='70' height='46'><span>Subscription creep calculator<small>Tool</small></span></a>
- <a class='ri' href='../../money/best-online-banks/index.html'><img src='../../assets/img/bank.svg' alt='' width='70' height='46'><span>Best online banks<small>Money</small></span></a>
+ <a class='ri' href='../../money/best-online-banks/index.html'><img src='../../assets/img/bank.svg' alt='' width='70' height='46'><span>Best online banks<small>Money &middot; 11 min</small></span></a>
 </div></aside>
 </main>
 <footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='../../privacy/index.html'>Privacy</a></div></footer>
 <script src='../../assets/js/ui.js'></script>
 <script>
 (function(){
+ 'use strict';
  function $(i){return document.getElementById(i);}
  function money(n){return (n<0?'-$':'$')+Math.abs(Math.round(n)).toLocaleString('en-US');}
+ function clamp(v,lo,hi){var x=parseFloat(v);if(isNaN(x))return lo;return Math.min(hi,Math.max(lo,x));}
  function calc(){
-  var s=parseFloat($('s').value)||0,r=(parseFloat($('ra').value)||0)/100,i=(parseFloat($('inf').value)||0)/100;
-  var real=(1+r)/(1+i)-1,newS=s*(1+r),need=s*(1+i),gap=newS-need;
+  var s=Math.max(0,parseFloat($('s').value)||0);
+  var r=clamp($('ra').value,-50,200)/100;
+  var i=clamp($('inf').value,-20,50)/100;
+  var real=(1+r)/(1+i)-1, newS=s*(1+r), need=s*(1+i), gap=newS-need;
   var v=real>0.02?['good','Real raise']:real>=0?['good','Kept pace']:real>=-0.01?['meh','Slipping']:['bad','Real pay cut'];
-  $('out').innerHTML=`<div class='lbl'>Your real pay change</div><div class='big'>${(real*100).toFixed(2)}% <span class='pill ${v[0]}' style='font-family:Roboto;font-size:13px;vertical-align:middle'>${v[1]}</span></div><div class='row'><div><span class='lbl'>New salary</span><b>${money(newS)}</b></div><div><span class='lbl'>Needed to keep up</span><b>${money(need)}</b></div><div><span class='lbl'>Buying power gap</span><b>${money(gap)}</b></div></div><p>${gap>=0?'Your raise beat inflation by about '+money(gap)+' a year in today\u2019s dollars.':'To stand still you needed about '+money(-gap)+' more a year.'}</p>`;
-  var rows='';[2,3,4,5,6].forEach(function(x){var rc=(1+r)/(1+x/100)-1;rows+=`<tr${rc>=0?" class='win'":''}><td>${x}% inflation</td><td class='num'>${(rc*100).toFixed(2)}%</td><td class='num'>${money(s*(1+r)-s*(1+x/100))}</td></tr>`;});
-  $('tw').innerHTML=`<table class='tbl'><caption>Your raise under different inflation rates</caption><thead><tr><th>Scenario</th><th>Real change</th><th>Yearly gap</th></tr></thead><tbody>${rows}</tbody></table>`;
+  $('out').innerHTML='<div class="lbl">Your real pay change</div><div class="big">'+(real*100).toFixed(2)+'% <span class="pill '+v[0]+'" style="font-family:Roboto;font-size:13px;vertical-align:middle">'+v[1]+'</span></div>'+
+   '<div class="row"><div><span class="lbl">New salary</span><b>'+money(newS)+'</b></div>'+
+   '<div><span class="lbl">Needed to keep up</span><b>'+money(need)+'</b></div>'+
+   '<div><span class="lbl">Buying power gap</span><b>'+money(gap)+'</b></div></div>'+
+   '<p>'+(gap>=0?'Your raise beat inflation by about '+money(gap)+' a year in today\u2019s dollars.':'To stand still you needed about '+money(-gap)+' more a year.')+'</p>';
+  var rows='',scen=[2,3,4,5,6];
+  for(var k=0;k<scen.length;k++){
+   var x=scen[k], rc=(1+r)/(1+x/100)-1;
+   rows+='<tr'+(rc>=0?' class="win"':'')+'><td>'+x+'% inflation</td><td class="num">'+(rc*100).toFixed(2)+'%</td><td class="num">'+money(s*(1+r)-s*(1+x/100))+'</td></tr>';
+  }
+  $('tw').innerHTML='<table class="tbl"><caption>Your raise under different inflation rates</caption><thead><tr><th>Scenario</th><th>Real change</th><th>Yearly gap</th></tr></thead><tbody>'+rows+'</tbody></table>';
  }
- ['s','ra','inf'].forEach(function(id){$(id).oninput=calc;});calc();
+ var ids=['s','ra','inf'];
+ for(var n=0;n<ids.length;n++){$(ids[n]).oninput=calc;}
+ calc();
 })();
 </script>
 </body></html>
