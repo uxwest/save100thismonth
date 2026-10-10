@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang='en-US'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Delivery True Cost Calculator: What That Order Really Cost | Save100ThisMonth</title>
+<meta name='description' content='Turn menu markup, service fees, delivery fees, tax and tip into one honest number, per order and per year, compared with ordering for pickup.'>
+<link rel='canonical' href='https://save100thismonth.com/tools/delivery-true-cost/'>
+<meta property='og:type' content='article'><meta property='og:site_name' content='Save100ThisMonth'>
+<meta property='og:title' content='That $15 order probably cost you $25. Here is the math.'>
+<meta property='og:description' content='Markup, fees and tip turned into one honest number, per order and per year.'>
+<meta name='twitter:card' content='summary_large_image'>
+<link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@500&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../../assets/css/style.css'>
+</head><body>
+<header class='hdr'><div class='w hdr-in'><a class='logo' href='../../index.html'>Save<b>100</b>ThisMonth</a><nav class='nav' aria-label='Primary'><a href='../../money/index.html'>Money</a><a href='../../shopping/index.html'>Shopping</a><a href='../../bills/index.html'>Bills</a><a href='../../subscriptions/index.html'>Subscriptions</a><a href='../index.html' aria-current='page'>Tools</a></nav><a class='srch' href='../../search/index.html'>Search</a></div></header>
+<main class='w grid'>
+<article class='post'>
+ <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
+ <span class='kicker'>Calculator &middot; Food</span>
+ <h1>Delivery True Cost: what that order really cost you</h1>
+ <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 2026</span><span>Runs in your browser</span></div>
+ <p class='lede'>Delivery apps rarely show you one clean number. The menu price is often higher than in the restaurant, then a service fee, a delivery fee, tax and tip stack on top.</p>
+ <p>Plug in an order you placed recently. The calculator shows the true cost, how far it sits above the in-store price, and what that habit adds up to over a year.</p>
+
+ <section class='tool' aria-label='Delivery cost calculator'>
+  <div class='f2'>
+   <div><label for='mp'>In-store menu price ($)</label><input id='mp' type='number' min='0' step='0.5' value='15'></div>
+   <div><label for='mk'>App menu markup (%)</label><input id='mk' type='number' min='0' max='100' step='1' value='20'></div>
+  </div>
+  <div class='f2'>
+   <div><label for='sf'>Service fee (%)</label><input id='sf' type='number' min='0' max='50' step='1' value='12'></div>
+   <div><label for='df'>Delivery fee ($)</label><input id='df' type='number' min='0' step='0.5' value='3.99'></div>
+  </div>
+  <div class='f2'>
+   <div><label for='tx'>Sales tax (%)</label><input id='tx' type='number' min='0' max='15' step='0.25' value='7'></div>
+   <div><label for='tp'>Tip (%)</label><input id='tp' type='number' min='0' max='40' step='1' value='18'></div>
+  </div>
+  <label for='n'>Orders per month</label><input id='n' type='number' min='0' max='60' value='6'>
+  <div class='out' id='out' role='status' aria-live='polite'></div>
+  <div class='tw' id='tw'></div>
+ </section>
+
+ <h2>Where the extra money goes</h2>
+ <p>Each layer looks reasonable alone. Together they can push an order 50 to 80% above what you would pay at the counter.</p>
+ <h3>Menu markup</h3>
+ <p>Many restaurants raise app prices to cover the commission the platform charges them. Compare the app price to the restaurant menu and you will often see the gap.</p>
+ <h3>Service and delivery fees</h3>
+ <p>Usually a percentage plus a flat fee, and both can rise at busy times.</p>
+ <h3>Tip</h3>
+ <p>Tips matter to drivers and you should keep tipping fairly. Just note that a percentage tip is calculated on the already-marked-up subtotal.</p>
+ <figure class='inl'><img src='../../assets/img/food.svg' alt='Illustration of a bowl of food' width='1200' height='500' loading='lazy'><figcaption>Same meal, two prices: counter and app.</figcaption></figure>
+
+ <h2>The formula</h2>
+ <div class='formula'>app subtotal  = menu price x (1 + markup)
+total         = subtotal + service fee + delivery fee + tax + tip
+pickup total  = menu price x (1 + tax)
+extra per year = (total - pickup total) x orders per month x 12</div>
+
+ <h2>Smart ways to keep the convenience</h2>
+ <ol class='steps'>
+  <li><strong>Order pickup in the same app.</strong> You skip delivery and service fees but keep the convenience of ordering ahead.</li>
+  <li><strong>Order directly from the restaurant.</strong> Many have their own ordering with menu prices.</li>
+  <li><strong>Batch orders.</strong> One larger order beats three small ones with three delivery fees.</li>
+  <li><strong>Check membership maths.</strong> A delivery pass only pays off above a certain order frequency.</li>
+ </ol>
+ <div class='pull'>Convenience is worth paying for. Just know the real price.</div>
+ <p>Want the bigger picture? Our <a href='../../shopping/best-meal-delivery/index.html'>meal delivery guide</a> compares kits, prepared meals and apps per serving.</p>
+
+ <h2>Frequently asked questions</h2>
+ <div class='faq'>
+  <details><summary>How do I find the markup?</summary><p>Compare the item price in the app with the restaurant website or in-store menu. The difference divided by the in-store price is the markup.</p></details>
+  <details><summary>Should I tip less to save money?</summary><p>No. Drivers rely on tips. Save by ordering less often or choosing pickup, not by cutting the tip.</p></details>
+  <details><summary>Are these fees the same everywhere?</summary><p>No. They vary by app, city, restaurant and time of day. Use numbers from your own receipt.</p></details>
+ </div>
+ <p class='meta'>Estimates only. Default values are illustrative.</p>
+</article>
+<aside class='side'><div class='side-box'><h4>Related</h4>
+ <a class='ri' href='../../shopping/best-meal-delivery/index.html'><img src='../../assets/img/food.svg' alt='' width='70' height='46'><span>Meal kits vs delivery apps<small>Shopping</small></span></a>
+ <a class='ri' href='../subscription-creep-calculator/index.html'><img src='../../assets/img/doc.svg' alt='' width='70' height='46'><span>Subscription creep calculator<small>Tool</small></span></a>
+ <a class='ri' href='../emergency-fund-runway/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>Emergency fund runway<small>Tool</small></span></a>
+</div></aside>
+</main>
+<footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='../../privacy/index.html'>Privacy</a></div></footer>
+<script src='../../assets/js/ui.js'></script>
+<script>
+(function(){
+ function $(i){return document.getElementById(i);}
+ function v(i){return parseFloat($(i).value)||0;}
+ function m(n){return '$'+n.toFixed(2);}
+ function calc(){
+  var mp=v('mp'),sub=mp*(1+v('mk')/100),svc=sub*v('sf')/100,df=v('df'),tx=sub*v('tx')/100,tp=sub*v('tp')/100,tot=sub+svc+df+tx+tp,pick=mp*(1+v('tx')/100),n=v('n'),diff=tot-pick,pct=pick>0?diff/pick*100:0;
+  $('out').innerHTML=`<div class='lbl'>True cost of this order</div><div class='big'>${m(tot)}</div><div class='row'><div><span class='lbl'>Pickup price</span><b>${m(pick)}</b></div><div><span class='lbl'>Extra per order</span><b>${m(diff)}</b></div><div><span class='lbl'>Extra per year</span><b>$${Math.round(diff*n*12).toLocaleString('en-US')}</b></div></div><p>You pay about <b>${pct.toFixed(0)}% more</b> than the counter price for the same food.</p>`;
+  var parts=[['Menu price',mp],['Markup',sub-mp],['Service fee',svc],['Delivery fee',df],['Tax',tx],['Tip',tp]],mx=Math.max.apply(null,parts.map(function(p){return p[1];}))||1,b='';
+  parts.forEach(function(p){b+=`<tr><td>${p[0]}</td><td class='num'>${m(p[1])}</td><td><span class='bar'><i style='width:${Math.max(3,p[1]/mx*100)}%'></i></span></td></tr>`;});
+  $('tw').innerHTML=`<table class='tbl'><caption>Where your money went</caption><thead><tr><th>Item</th><th>Amount</th><th>Size</th></tr></thead><tbody>${b}</tbody></table>`;
+ }
+ ['mp','mk','sf','df','tx','tp','n'].forEach(function(id){$(id).oninput=calc;});calc();
+})();
+</script>
+</body></html>

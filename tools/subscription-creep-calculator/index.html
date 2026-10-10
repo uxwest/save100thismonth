@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang='en-US'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Subscription Creep Calculator: What Your Subscriptions Cost Over 10 Years | Save100ThisMonth</title>
+<meta name='description' content='List every subscription you pay for and see the real 1, 5 and 10-year cost, which ones cost the most, and what that money could have grown into. Free and private.'>
+<link rel='canonical' href='https://save100thismonth.com/tools/subscription-creep-calculator/'>
+<meta property='og:type' content='article'><meta property='og:site_name' content='Save100ThisMonth'>
+<meta property='og:title' content='Your small subscriptions could cost five figures over 10 years. Check yours.'>
+<meta property='og:description' content='Add every service you pay for. See the 10-year total, the biggest offenders and the opportunity cost. Takes 60 seconds.'>
+<meta name='twitter:card' content='summary_large_image'>
+<link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@500&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../../assets/css/style.css'>
+</head><body>
+<header class='hdr'><div class='w hdr-in'><a class='logo' href='../../index.html'>Save<b>100</b>ThisMonth</a><nav class='nav' aria-label='Primary'><a href='../../money/index.html'>Money</a><a href='../../shopping/index.html'>Shopping</a><a href='../../bills/index.html'>Bills</a><a href='../../subscriptions/index.html'>Subscriptions</a><a href='../index.html' aria-current='page'>Tools</a></nav><a class='srch' href='../../search/index.html'>Search</a></div></header>
+<main class='w grid'>
+<article class='post'>
+ <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
+ <span class='kicker'>Calculator &middot; Subscriptions</span>
+ <h1>Subscription Creep Calculator: what your subscriptions really cost</h1>
+ <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 2026</span><span>Runs in your browser</span></div>
+ <p class='lede'>Nobody signs up for a $1,500-a-year habit. You sign up for a $9.99 trial. Then another. Then a price bump you never notice. That slow pile-up has a name: subscription creep.</p>
+ <p>This tool adds it all up. List every recurring charge, and you will see the monthly total, the 1, 5 and 10-year cost, which services cost you the most, and what the same money could have grown into.</p>
+
+ <section class='tool' aria-label='Subscription calculator'>
+  <div id='rows'></div>
+  <p style='margin:12px 0 0'><button class='btn ghost' type='button' id='add'>+ Add a subscription</button></p>
+  <div class='f2'>
+   <div><label for='r'>Illustrative yearly return if invested instead (%)</label><input id='r' type='number' min='0' max='15' step='0.5' value='5'></div>
+   <div><label for='hike'>Expected yearly price increase (%)</label><input id='hike' type='number' min='0' max='30' step='1' value='0'></div>
+  </div>
+  <div class='out' id='out' role='status' aria-live='polite'></div>
+  <div class='tw' id='tw'></div>
+ </section>
+
+ <h2>Why this number surprises almost everyone</h2>
+ <p>Monthly pricing is designed to feel light. Your brain compares $14.99 to a coffee, not to a car payment.</p>
+ <p>But subscriptions do not behave like coffee. They renew automatically, they rarely get cheaper, and they stack. Five average services can easily pass $80 a month. That is close to $1,000 a year, every year, for things you may barely use.</p>
+ <figure class='inl'><img src='../../assets/img/doc.svg' alt='Illustration of a bill with many line items' width='1200' height='500' loading='lazy'><figcaption>Each line looks small. The total is what matters.</figcaption></figure>
+
+ <h2>How the calculator works</h2>
+ <h3>1. Monthly and yearly total</h3>
+ <p>We add every price you enter. The yearly figure is simply the monthly total times 12.</p>
+ <h3>2. Five and ten-year cost</h3>
+ <p>If you add an expected price increase, each year costs a little more than the last. With zero, it is straight multiplication.</p>
+ <h3>3. Opportunity cost</h3>
+ <p>This is the interesting one. It asks: if that same monthly amount went into savings or investments instead, what could it grow to? We use standard monthly compounding.</p>
+ <div class='formula'>monthly rate     r = annual return / 12
+future value     FV = monthly total x ((1 + r)^months - 1) / r
+example          $80/month, 5%, 120 months  -> about $12,400</div>
+ <div class='note warn'><b>The return is an assumption, not a promise.</b> Investments can lose value. We default to 5% only to illustrate the idea. Change it, or set it to your savings account rate for a no-risk comparison.</div>
+
+ <h2>How to read your results</h2>
+ <div class='tw'><table class='tbl'><caption>What your monthly total usually means</caption><thead><tr><th>Monthly total</th><th>10-year cost</th><th>Signal</th></tr></thead><tbody>
+  <tr><td>Under $30</td><td class='num'>under $3,600</td><td><span class='pill good'>Lean</span></td></tr>
+  <tr><td>$30 to $80</td><td class='num'>$3,600 to $9,600</td><td><span class='pill meh'>Worth an audit</span></td></tr>
+  <tr><td>$80 to $150</td><td class='num'>$9,600 to $18,000</td><td><span class='pill bad'>Creep detected</span></td></tr>
+  <tr><td>Over $150</td><td class='num'>over $18,000</td><td><span class='pill bad'>Serious leak</span></td></tr>
+ </tbody></table></div>
+
+ <h2>Five ways to cut the total this month</h2>
+ <ol class='steps'>
+  <li><strong>Pull 3 months of statements.</strong> Search for recurring charges. Most people find at least one they forgot.</li>
+  <li><strong>Apply the 30-day test.</strong> Did you use it in the last 30 days? If not, cancel. You can always come back.</li>
+  <li><strong>Rotate, do not stack.</strong> Keep one streaming service at a time and switch every few months.</li>
+  <li><strong>Check for duplicates.</strong> Cloud storage, music and news often overlap with bundles you already pay for.</li>
+  <li><strong>Calendar every free trial.</strong> Set a reminder two days before it converts to paid.</li>
+ </ol>
+ <div class='pull'>The cheapest subscription is the one you cancel before it renews.</div>
+
+ <h2>Annual or monthly billing?</h2>
+ <p>Annual plans often save 15 to 20%. But they only win if you keep the service all year.</p>
+ <p>Quick rule: divide the annual price by the monthly price. That is your break-even month. If you are not confident you will still use it after that month, stay monthly.</p>
+
+ <h2>Frequently asked questions</h2>
+ <div class='faq'>
+  <details><summary>Is my data saved anywhere?</summary><p>No. Everything runs in your browser. Close the tab and it is gone.</p></details>
+  <details><summary>Why include an investment return?</summary><p>It shows the trade-off. Money spent on unused services is money that could have grown. Use your savings rate if you prefer a risk-free comparison.</p></details>
+  <details><summary>Should I cancel everything?</summary><p>No. Keep what you genuinely use and value. The goal is intentional spending, not zero spending.</p></details>
+  <details><summary>What counts as a subscription?</summary><p>Anything that renews automatically: streaming, music, apps, cloud storage, gyms, meal kits, software, memberships and delivery passes.</p></details>
+ </div>
+ <p class='meta'>Estimates only, not financial advice. Prices and returns are inputs you control.</p>
+</article>
+<aside class='side'><div class='side-box'><h4>Related</h4>
+ <a class='ri' href='../real-raise-calculator/index.html'><img src='../../assets/img/chart.svg' alt='' width='70' height='46'><span>Did your raise beat inflation?<small>Tool</small></span></a>
+ <a class='ri' href='../delivery-true-cost/index.html'><img src='../../assets/img/food.svg' alt='' width='70' height='46'><span>The true cost of delivery<small>Tool</small></span></a>
+ <a class='ri' href='../../subscriptions/wix-vs-squarespace-for-a-portfolio/index.html'><img src='../../assets/img/web.svg' alt='' width='70' height='46'><span>Wix vs Squarespace<small>Subscriptions</small></span></a>
+ <a class='ri' href='../../money/best-high-yield-savings-accounts/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>High-yield savings checklist<small>Money</small></span></a>
+</div></aside>
+</main>
+<footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='../../privacy/index.html'>Privacy</a></div></footer>
+<script src='../../assets/js/ui.js'></script>
+<script>
+(function(){
+ var rows=document.getElementById('rows');
+ function clean(s){return String(s).replace(/[<>&]/g,'');}
+ function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+ function add(n,p){
+  var d=document.createElement('div');d.className='f3';
+  d.innerHTML=`<div><label>Service</label><input class='sn' type='text'></div><div><label>$ per month</label><input class='sp' type='number' min='0' step='0.01'></div><button type='button' class='xbtn' aria-label='Remove'>&times;</button>`;
+  d.querySelector('.sn').value=n;d.querySelector('.sp').value=p;
+  d.querySelector('.xbtn').onclick=function(){d.remove();calc();};
+  d.querySelectorAll('input').forEach(function(i){i.oninput=calc;});
+  rows.appendChild(d);
+ }
+ function calc(){
+  var items=[];
+  rows.querySelectorAll('.f3').forEach(function(d){var p=parseFloat(d.querySelector('.sp').value)||0;if(p>0)items.push({n:clean(d.querySelector('.sn').value||'Subscription'),p:p});});
+  var m=items.reduce(function(a,b){return a+b.p;},0);
+  var rr=(parseFloat(document.getElementById('r').value)||0)/100/12;
+  var h=(parseFloat(document.getElementById('hike').value)||0)/100;
+  function cost(years,base){var t=0;for(var y=0;y<years;y++)t+=base*12*Math.pow(1+h,y);return t;}
+  var fv=rr>0?m*(Math.pow(1+rr,120)-1)/rr:m*120;
+  var out=document.getElementById('out'),tw=document.getElementById('tw');
+  if(!items.length){out.innerHTML='<p>Add at least one subscription with a price.</p>';tw.innerHTML='';return;}
+  out.innerHTML=`<div class='lbl'>Your subscriptions over 10 years</div><div class='big'>${money(cost(10,m))}</div><div class='row'><div><span class='lbl'>Per month</span><b>$${m.toFixed(2)}</b></div><div><span class='lbl'>Per year</span><b>${money(m*12)}</b></div><div><span class='lbl'>5 years</span><b>${money(cost(5,m))}</b></div></div><p>Invested instead, the same monthly amount could grow to roughly <b>${money(fv)}</b> in 10 years at your assumed return.</p>`;
+  items.sort(function(a,b){return b.p-a.p;});
+  var max=items[0].p,body='';
+  items.forEach(function(it){body+=`<tr><td>${it.n}</td><td class='num'>$${it.p.toFixed(2)}</td><td class='num'>${money(cost(10,it.p))}</td><td><span class='bar'><i style='width:${Math.max(4,it.p/max*100)}%'></i></span></td></tr>`;});
+  tw.innerHTML=`<table class='tbl'><caption>Biggest offenders first</caption><thead><tr><th>Service</th><th>Monthly</th><th>10 years</th><th>Share</th></tr></thead><tbody>${body}</tbody></table>`;
+ }
+ [['Streaming video',15.49],['Music',10.99],['Cloud storage',2.99],['Gym',40],['News app',8]].forEach(function(x){add(x[0],x[1]);});
+ document.getElementById('add').onclick=function(){add('New subscription',9.99);calc();};
+ document.getElementById('r').oninput=calc;document.getElementById('hike').oninput=calc;
+ calc();
+})();
+</script>
+</body></html>

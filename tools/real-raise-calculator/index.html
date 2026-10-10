@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang='en-US'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Real Raise Calculator: Did Your Raise Beat Inflation? | Save100ThisMonth</title>
+<meta name='description' content='Enter your salary, your raise and the inflation rate to see your real pay change, how much buying power you gained or lost, and what raise you would need to break even.'>
+<link rel='canonical' href='https://save100thismonth.com/tools/real-raise-calculator/'>
+<meta property='og:type' content='article'><meta property='og:site_name' content='Save100ThisMonth'>
+<meta property='og:title' content='Got a raise? Depending on inflation, you may have taken a pay cut.'>
+<meta property='og:description' content='Find out in 10 seconds whether your raise actually increased your buying power.'>
+<meta name='twitter:card' content='summary_large_image'>
+<link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@500&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../../assets/css/style.css'>
+</head><body>
+<header class='hdr'><div class='w hdr-in'><a class='logo' href='../../index.html'>Save<b>100</b>ThisMonth</a><nav class='nav' aria-label='Primary'><a href='../../money/index.html'>Money</a><a href='../../shopping/index.html'>Shopping</a><a href='../../bills/index.html'>Bills</a><a href='../../subscriptions/index.html'>Subscriptions</a><a href='../index.html' aria-current='page'>Tools</a></nav><a class='srch' href='../../search/index.html'>Search</a></div></header>
+<main class='w grid'>
+<article class='post'>
+ <p class='crumbs'><a href='../../index.html'>Home</a> / <a href='../index.html'>Tools</a></p>
+ <span class='kicker'>Calculator &middot; Income</span>
+ <h1>Real Raise Calculator: did your raise actually beat inflation?</h1>
+ <div class='byline'><span><b>Save100ThisMonth</b> tools</span><span>Updated October 2026</span><span>Runs in your browser</span></div>
+ <p class='lede'>A raise feels like progress. But if prices rose faster than your paycheck, you can earn more dollars and still afford less. Economists call the difference your real wage.</p>
+ <p>This calculator compares your raise to inflation and tells you, in plain numbers, whether your buying power went up or down.</p>
+
+ <section class='tool' aria-label='Real raise calculator'>
+  <label for='s'>Current yearly salary ($)</label><input id='s' type='number' min='0' step='500' value='60000'>
+  <div class='f2'>
+   <div><label for='ra'>Your raise (%)</label><input id='ra' type='number' step='0.1' value='3'></div>
+   <div><label for='inf'>Inflation over the same period (%)</label><input id='inf' type='number' step='0.1' value='3.5'></div>
+  </div>
+  <p class='meta' style='margin-top:8px'>Use the latest 12-month CPI change from the Bureau of Labor Statistics for the inflation figure.</p>
+  <div class='out' id='out' role='status' aria-live='polite'></div>
+  <div class='tw' id='tw'></div>
+ </section>
+
+ <h2>Nominal vs real: the 30-second explanation</h2>
+ <p><strong>Nominal</strong> is the number on your paycheck. <strong>Real</strong> is what that paycheck can buy.</p>
+ <p>If your pay rises 3% but prices rise 3.5%, your nominal pay went up and your real pay went down. You are, in effect, about half a percent poorer.</p>
+ <figure class='inl'><img src='../../assets/img/chart.svg' alt='Illustration of a price chart moving up and down' width='1200' height='500' loading='lazy'><figcaption>Prices and pay move separately. Your real wage is the gap between them.</figcaption></figure>
+
+ <h2>The formula</h2>
+ <p>Subtracting inflation from your raise gives a quick estimate. The precise version divides instead:</p>
+ <div class='formula'>real change   = (1 + raise) / (1 + inflation) - 1
+example       (1.03 / 1.035) - 1  =  -0.48%
+break-even    you need a raise equal to inflation just to stand still</div>
+
+ <h2>How to read your result</h2>
+ <div class='tw'><table class='tbl'><caption>What your real change means</caption><thead><tr><th>Real change</th><th>Meaning</th><th>Verdict</th></tr></thead><tbody>
+  <tr><td>Above +2%</td><td>Your buying power clearly grew</td><td><span class='pill good'>Real raise</span></td></tr>
+  <tr><td>0% to +2%</td><td>You kept up, with a little extra</td><td><span class='pill good'>Kept pace</span></td></tr>
+  <tr><td>-1% to 0%</td><td>A small, quiet pay cut</td><td><span class='pill meh'>Slipping</span></td></tr>
+  <tr><td>Below -1%</td><td>Your money buys noticeably less</td><td><span class='pill bad'>Real pay cut</span></td></tr>
+ </tbody></table></div>
+
+ <h2>What to do if your raise lost to inflation</h2>
+ <ol class='steps'>
+  <li><strong>Bring data to the conversation.</strong> Market salary ranges for your role are more persuasive than feelings.</li>
+  <li><strong>Ask about the whole package.</strong> Retirement match, bonus, training budget and remote days all have dollar value.</li>
+  <li><strong>Protect your savings.</strong> Make sure cash earns a competitive rate. See our <a href='../../money/best-high-yield-savings-accounts/index.html'>high-yield savings checklist</a>.</li>
+  <li><strong>Cut leaks first.</strong> Run your recurring costs through the <a href='../subscription-creep-calculator/index.html'>subscription creep calculator</a>.</li>
+ </ol>
+ <div class='pull'>A raise that trails inflation is a pay cut with better marketing.</div>
+
+ <h2>Personal inflation is not the headline number</h2>
+ <p>The official rate is an average basket. Your own inflation depends on what you buy.</p>
+ <p>If rent, insurance or childcare make up most of your budget and those rose faster, your personal inflation may be higher than the headline. Try entering a higher figure to stress-test your result.</p>
+
+ <h2>Frequently asked questions</h2>
+ <div class='faq'>
+  <details><summary>Where do I find the inflation rate?</summary><p>The Bureau of Labor Statistics publishes the Consumer Price Index monthly. Use the 12-month change that matches your raise period.</p></details>
+  <details><summary>Does this include taxes?</summary><p>No. It compares gross pay to prices. A higher salary can also move part of your income into a higher bracket, which reduces the take-home gain.</p></details>
+  <details><summary>Is my salary data stored?</summary><p>No. The calculation runs entirely in your browser.</p></details>
+ </div>
+ <p class='meta'>Estimates only, not financial or career advice.</p>
+</article>
+<aside class='side'><div class='side-box'><h4>Related</h4>
+ <a class='ri' href='../emergency-fund-runway/index.html'><img src='../../assets/img/savings.svg' alt='' width='70' height='46'><span>Emergency fund runway<small>Tool</small></span></a>
+ <a class='ri' href='../subscription-creep-calculator/index.html'><img src='../../assets/img/doc.svg' alt='' width='70' height='46'><span>Subscription creep calculator<small>Tool</small></span></a>
+ <a class='ri' href='../../money/best-online-banks/index.html'><img src='../../assets/img/bank.svg' alt='' width='70' height='46'><span>Best online banks<small>Money</small></span></a>
+</div></aside>
+</main>
+<footer class='foot'><div class='w'>&copy; 2026 Save100ThisMonth &middot; <a href='../../privacy/index.html'>Privacy</a></div></footer>
+<script src='../../assets/js/ui.js'></script>
+<script>
+(function(){
+ function $(i){return document.getElementById(i);}
+ function money(n){return (n<0?'-$':'$')+Math.abs(Math.round(n)).toLocaleString('en-US');}
+ function calc(){
+  var s=parseFloat($('s').value)||0,r=(parseFloat($('ra').value)||0)/100,i=(parseFloat($('inf').value)||0)/100;
+  var real=(1+r)/(1+i)-1,newS=s*(1+r),need=s*(1+i),gap=newS-need;
+  var v=real>0.02?['good','Real raise']:real>=0?['good','Kept pace']:real>=-0.01?['meh','Slipping']:['bad','Real pay cut'];
+  $('out').innerHTML=`<div class='lbl'>Your real pay change</div><div class='big'>${(real*100).toFixed(2)}% <span class='pill ${v[0]}' style='font-family:Roboto;font-size:13px;vertical-align:middle'>${v[1]}</span></div><div class='row'><div><span class='lbl'>New salary</span><b>${money(newS)}</b></div><div><span class='lbl'>Needed to keep up</span><b>${money(need)}</b></div><div><span class='lbl'>Buying power gap</span><b>${money(gap)}</b></div></div><p>${gap>=0?'Your raise beat inflation by about '+money(gap)+' a year in today\u2019s dollars.':'To stand still you needed about '+money(-gap)+' more a year.'}</p>`;
+  var rows='';[2,3,4,5,6].forEach(function(x){var rc=(1+r)/(1+x/100)-1;rows+=`<tr${rc>=0?" class='win'":''}><td>${x}% inflation</td><td class='num'>${(rc*100).toFixed(2)}%</td><td class='num'>${money(s*(1+r)-s*(1+x/100))}</td></tr>`;});
+  $('tw').innerHTML=`<table class='tbl'><caption>Your raise under different inflation rates</caption><thead><tr><th>Scenario</th><th>Real change</th><th>Yearly gap</th></tr></thead><tbody>${rows}</tbody></table>`;
+ }
+ ['s','ra','inf'].forEach(function(id){$(id).oninput=calc;});calc();
+})();
+</script>
+</body></html>
